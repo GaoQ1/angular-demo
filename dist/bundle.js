@@ -35045,7 +35045,7 @@
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
-		value: true
+	    value: true
 	});
 	
 	var _utilityInject = __webpack_require__(8);
@@ -35067,52 +35067,51 @@
 	__webpack_require__(42);
 	
 	exports.default = new _utilityInject.routerInject({
-		'home': { //首页
-			url: '/disney',
-			controller: 'homeController',
-			templateUrl: 'disney.home.html'
-		},
-		fillinfo: { //填写
-			url: '/disney/fillinfo',
-			controller: 'fillinfoController',
-			templateUrl: 'disney.fillinfo.html'
-		},
-		ticketInfo: { //机票信息选择
-			url: '/disney/ticketInfo',
-			controller: 'ticketInfoController',
-			templateUrl: 'disney.ticketInfo.html'
-		},
-		goTicketList: { //航班选择-去程
-			url: '/disney/goTicketList',
-			controller: 'goTicketListController',
-			templateUrl: 'disney.goTicketList.html'
-		},
-		backTicketList: { //航班选择-返程
-			url: '/disney/backTicketList',
-			controller: 'backTicketListController',
-			templateUrl: 'disney.backTicketList.html'
-		},
-		goTicketDetail: { //航班详情
-			url: '/disney/goTicketDetail',
-			controller: 'goTicketDetailController',
-			templateUrl: 'disney.ticketDetail.html'
-		},
-		backTicketDetail: { //航班详情
-			url: '/disney/backTicketDetail',
-			controller: 'backTicketDetailController',
-			templateUrl: 'disney.ticketDetail.html'
-		},
-		addDisTicket: { //门票日期选择
-			url: '/disney/addDisTicket',
-			controller: 'addDisTicketController',
-			templateUrl: 'disney.addDisTicket.html'
-		},
-		fillOrder: { //填写资料
-			url: '/disney/fillOrder',
-			controller: 'fillOrderController',
-			templateUrl: 'disney.fillOrder.html'
-		}
-	
+	    home: { //首页
+	        url: '/disney',
+	        controller: 'homeController',
+	        templateUrl: 'disney.home.html'
+	    },
+	    fillinfo: { //填写
+	        url: '/disney/fillinfo',
+	        controller: 'fillinfoController',
+	        templateUrl: 'disney.fillinfo.html'
+	    },
+	    ticketInfo: { //机票信息选择
+	        url: '/disney/ticketInfo',
+	        controller: 'ticketInfoController',
+	        templateUrl: 'disney.ticketInfo.html'
+	    },
+	    goTicketList: { //航班选择-去程
+	        url: '/disney/goTicketList',
+	        controller: 'goTicketListController',
+	        templateUrl: 'disney.goTicketList.html'
+	    },
+	    backTicketList: { //航班选择-返程
+	        url: '/disney/backTicketList',
+	        controller: 'backTicketListController',
+	        templateUrl: 'disney.backTicketList.html'
+	    },
+	    goTicketDetail: { //航班详情
+	        url: '/disney/goTicketDetail',
+	        controller: 'goTicketDetailController',
+	        templateUrl: 'disney.ticketDetail.html'
+	    },
+	    backTicketDetail: { //航班详情
+	        url: '/disney/backTicketDetail',
+	        controller: 'backTicketDetailController',
+	        templateUrl: 'disney.ticketDetail.html'
+	    },
+	    addDisTicket: { //门票日期选择
+	        url: '/disney/addDisTicket',
+	        controller: 'addDisTicketController',
+	        templateUrl: 'disney.addDisTicket.html'
+	    },
+	    fillOrder: { //填写资料
+	        url: '/disney/fillOrder',
+	        controller: 'fillOrderController',
+	        templateUrl: 'disney.fillOrder.html'
+	    }
 	});
 
 /***/ },
@@ -35122,7 +35121,7 @@
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
-		value: true
+	    value: true
 	});
 	exports.routerInject = exports.configInject = exports.decoratorInject = exports.constantInject = exports.valueInject = exports.serviceInject = exports.factoryInject = exports.providerInject = exports.directiveInject = exports.controllerInject = undefined;
 	
@@ -35137,189 +35136,189 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var controllerInject = exports.controllerInject = function () {
-		function controllerInject() {
-			var controller = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
-			(0, _classCallCheck3.default)(this, controllerInject);
+	    function controllerInject() {
+	        var controller = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+	        (0, _classCallCheck3.default)(this, controllerInject);
 	
-			this.controller = controller;
-		}
+	        this.controller = controller;
+	    }
 	
-		(0, _createClass3.default)(controllerInject, [{
-			key: 'inject',
-			value: function inject(module) {
-				injectBase(this.controller, module, 'controller');
-			}
-		}]);
-		return controllerInject;
+	    (0, _createClass3.default)(controllerInject, [{
+	        key: 'inject',
+	        value: function inject(module) {
+	            injectBase(this.controller, module, 'controller');
+	        }
+	    }]);
+	    return controllerInject;
 	}();
 	
 	var directiveInject = exports.directiveInject = function () {
-		function directiveInject() {
-			var directive = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
-			(0, _classCallCheck3.default)(this, directiveInject);
+	    function directiveInject() {
+	        var directive = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+	        (0, _classCallCheck3.default)(this, directiveInject);
 	
-			this.directive = directive;
-		}
+	        this.directive = directive;
+	    }
 	
-		(0, _createClass3.default)(directiveInject, [{
-			key: 'inject',
-			value: function inject(module) {
-				injectBase(this.directive, module, 'directive');
-			}
-		}]);
-		return directiveInject;
+	    (0, _createClass3.default)(directiveInject, [{
+	        key: 'inject',
+	        value: function inject(module) {
+	            injectBase(this.directive, module, 'directive');
+	        }
+	    }]);
+	    return directiveInject;
 	}();
 	
 	var providerInject = exports.providerInject = function () {
-		function providerInject() {
-			var provider = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
-			(0, _classCallCheck3.default)(this, providerInject);
+	    function providerInject() {
+	        var provider = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+	        (0, _classCallCheck3.default)(this, providerInject);
 	
-			this.provider = provider;
-		}
+	        this.provider = provider;
+	    }
 	
-		(0, _createClass3.default)(providerInject, [{
-			key: 'inject',
-			value: function inject(module) {
-				injectBase(this.provider, module, 'provider');
-			}
-		}]);
-		return providerInject;
+	    (0, _createClass3.default)(providerInject, [{
+	        key: 'inject',
+	        value: function inject(module) {
+	            injectBase(this.provider, module, 'provider');
+	        }
+	    }]);
+	    return providerInject;
 	}();
 	
 	var factoryInject = exports.factoryInject = function () {
-		function factoryInject() {
-			var factory = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
-			(0, _classCallCheck3.default)(this, factoryInject);
+	    function factoryInject() {
+	        var factory = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+	        (0, _classCallCheck3.default)(this, factoryInject);
 	
-			this.factory = factory;
-		}
+	        this.factory = factory;
+	    }
 	
-		(0, _createClass3.default)(factoryInject, [{
-			key: 'inject',
-			value: function inject(module) {
-				injectBase(this.factory, module, 'factory');
-			}
-		}]);
-		return factoryInject;
+	    (0, _createClass3.default)(factoryInject, [{
+	        key: 'inject',
+	        value: function inject(module) {
+	            injectBase(this.factory, module, 'factory');
+	        }
+	    }]);
+	    return factoryInject;
 	}();
 	
 	var serviceInject = exports.serviceInject = function () {
-		function serviceInject() {
-			var service = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
-			(0, _classCallCheck3.default)(this, serviceInject);
+	    function serviceInject() {
+	        var service = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+	        (0, _classCallCheck3.default)(this, serviceInject);
 	
-			this.service = service;
-		}
+	        this.service = service;
+	    }
 	
-		(0, _createClass3.default)(serviceInject, [{
-			key: 'inject',
-			value: function inject(module) {
-				injectBase(this.service, module, 'service');
-			}
-		}]);
-		return serviceInject;
+	    (0, _createClass3.default)(serviceInject, [{
+	        key: 'inject',
+	        value: function inject(module) {
+	            injectBase(this.service, module, 'service');
+	        }
+	    }]);
+	    return serviceInject;
 	}();
 	
 	var valueInject = exports.valueInject = function () {
-		function valueInject() {
-			var value = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
-			(0, _classCallCheck3.default)(this, valueInject);
+	    function valueInject() {
+	        var value = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+	        (0, _classCallCheck3.default)(this, valueInject);
 	
-			this.value = value;
-		}
+	        this.value = value;
+	    }
 	
-		(0, _createClass3.default)(valueInject, [{
-			key: 'inject',
-			value: function inject(module) {
-				injectBase(this.value, module, 'value');
-			}
-		}]);
-		return valueInject;
+	    (0, _createClass3.default)(valueInject, [{
+	        key: 'inject',
+	        value: function inject(module) {
+	            injectBase(this.value, module, 'value');
+	        }
+	    }]);
+	    return valueInject;
 	}();
 	
 	var constantInject = exports.constantInject = function () {
-		function constantInject() {
-			var constant = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
-			(0, _classCallCheck3.default)(this, constantInject);
+	    function constantInject() {
+	        var constant = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+	        (0, _classCallCheck3.default)(this, constantInject);
 	
-			this.constant = constant;
-		}
+	        this.constant = constant;
+	    }
 	
-		(0, _createClass3.default)(constantInject, [{
-			key: 'inject',
-			value: function inject(module) {
-				injectBase(this.constant, module, 'constant');
-			}
-		}]);
-		return constantInject;
+	    (0, _createClass3.default)(constantInject, [{
+	        key: 'inject',
+	        value: function inject(module) {
+	            injectBase(this.constant, module, 'constant');
+	        }
+	    }]);
+	    return constantInject;
 	}();
 	
 	var decoratorInject = exports.decoratorInject = function () {
-		function decoratorInject() {
-			var decorator = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
-			(0, _classCallCheck3.default)(this, decoratorInject);
+	    function decoratorInject() {
+	        var decorator = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+	        (0, _classCallCheck3.default)(this, decoratorInject);
 	
-			this.decorator = decorator;
-		}
+	        this.decorator = decorator;
+	    }
 	
-		(0, _createClass3.default)(decoratorInject, [{
-			key: 'inject',
-			value: function inject(module) {
-				injectBase(this.decorator, module, 'decorator');
-			}
-		}]);
-		return decoratorInject;
+	    (0, _createClass3.default)(decoratorInject, [{
+	        key: 'inject',
+	        value: function inject(module) {
+	            injectBase(this.decorator, module, 'decorator');
+	        }
+	    }]);
+	    return decoratorInject;
 	}();
 	
 	var configInject = exports.configInject = function () {
-		function configInject() {
-			var config = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
-			(0, _classCallCheck3.default)(this, configInject);
+	    function configInject() {
+	        var config = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+	        (0, _classCallCheck3.default)(this, configInject);
 	
-			this.config = config;
-		}
+	        this.config = config;
+	    }
 	
-		(0, _createClass3.default)(configInject, [{
-			key: 'inject',
-			value: function inject(module) {
-				for (var key in this.config) {
-					module['config'](this.config[key]);
-				}
-			}
-		}]);
-		return configInject;
+	    (0, _createClass3.default)(configInject, [{
+	        key: 'inject',
+	        value: function inject(module) {
+	            for (var key in this.config) {
+	                module['config'](this.config[key]);
+	            }
+	        }
+	    }]);
+	    return configInject;
 	}();
 	
 	var routerInject = exports.routerInject = function () {
-		function routerInject() {
-			var router = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
-			var routerProvider = arguments.length <= 1 || arguments[1] === undefined ? '$stateProvider' : arguments[1];
-			var routerFn = arguments.length <= 2 || arguments[2] === undefined ? 'state' : arguments[2];
-			(0, _classCallCheck3.default)(this, routerInject);
+	    function routerInject() {
+	        var router = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+	        var routerProvider = arguments.length <= 1 || arguments[1] === undefined ? '$stateProvider' : arguments[1];
+	        var routerFn = arguments.length <= 2 || arguments[2] === undefined ? 'state' : arguments[2];
+	        (0, _classCallCheck3.default)(this, routerInject);
 	
-			this.router = router;
-			this.routerProvider = routerProvider;
-			this.routerFn = routerFn;
-		}
+	        this.router = router;
+	        this.routerProvider = routerProvider;
+	        this.routerFn = routerFn;
+	    }
 	
-		(0, _createClass3.default)(routerInject, [{
-			key: 'inject',
-			value: function inject(module) {
-				var _this = this;
+	    (0, _createClass3.default)(routerInject, [{
+	        key: 'inject',
+	        value: function inject(module) {
+	            var _this = this;
 	
-				module.config([this.routerProvider, function ($stateProvider) {
-					injectBase(_this.router, $stateProvider, _this.routerFn);
-				}]);
-			}
-		}]);
-		return routerInject;
+	            module.config([this.routerProvider, function ($stateProvider) {
+	                injectBase(_this.router, $stateProvider, _this.routerFn);
+	            }]);
+	        }
+	    }]);
+	    return routerInject;
 	}();
 	
 	function injectBase(injectObjs, module, fnType) {
-		for (var key in injectObjs) {
-			module[fnType](key, injectObjs[key]);
-		}
+	    for (var key in injectObjs) {
+	        module[fnType](key, injectObjs[key]);
+	    }
 	}
 
 /***/ },
@@ -36268,7 +36267,7 @@
 		value: true
 	});
 	
-	var _utility = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"../../utility.storage\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+	var _utility = __webpack_require__(61);
 	
 	var _utility2 = _interopRequireDefault(_utility);
 	
@@ -36282,7 +36281,79 @@
 	exports.default = util_s_local;
 
 /***/ },
-/* 61 */,
+/* 61 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	exports.default = storageBase;
+	
+	var _angular = __webpack_require__(3);
+	
+	var _angular2 = _interopRequireDefault(_angular);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function storageBase(storage) {
+		/*获取缓存
+	 @key string 缓存标识
+	 @getOne boolean 是否读取后删除缓存
+	 @retrun Object 缓存数据
+	 getOne==true 读取后删除缓存
+	 */
+		this.getJson = function (key, getOne) {
+			var data = _angular2.default.fromJson(storage.getItem(key));
+			if (getOne === true) this.removeItem(key);
+			return data;
+		};
+	
+		/*设置已存在的缓存
+	 @key string 缓存标识
+	 @data object 缓存
+	 */
+		this.extendJson = function (key, data) {
+			var oldData = this.getJson(key);
+			_angular2.default.extend(oldData, data);
+			this.setJson(key, oldData);
+		};
+	
+		/*设置缓存
+	 @key string 缓存标识
+	 @data object 缓存的对象
+	 */
+		this.setJson = function (key, data) {
+			return storage.setItem(key, _angular2.default.toJson(data));
+		};
+		/*删除缓存
+	 @key string 缓存标识
+	 */
+		this.removeItem = function (key) {
+			return storage.removeItem(key);
+		};
+	
+		/*设置缓存
+	 @key string 缓存标识
+	 @data string 缓存的字符串
+	 */
+		this.setItem = function (key, data) {
+			return storage.setItem(key, data);
+		};
+	
+		/*获取缓存
+	 @key string 缓存标识
+	 @retrun srting 缓存数据
+	 */
+		this.getItem = function (key, getOne) {
+			var data = storage.getItem(key);
+			if (getOne === true) this.removeItem(key);
+			return data;
+		};
+	}
+
+/***/ },
 /* 62 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -36292,7 +36363,7 @@
 		value: true
 	});
 	
-	var _utility = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"../../utility.storage\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+	var _utility = __webpack_require__(61);
 	
 	var _utility2 = _interopRequireDefault(_utility);
 	

@@ -1,11 +1,11 @@
-import angular form 'angular'
+import angular from 'angular'
 
 export default function storageBase(storage){
 		/*获取缓存
 		@key string 缓存标识
-		@getOne boolean 是否读取后删除缓存 
+		@getOne boolean 是否读取后删除缓存
 		@retrun Object 缓存数据
-		getOne==true 读取后删除缓存		
+		getOne==true 读取后删除缓存
 		*/
 		this.getJson=function(key,getOne){
 			var data =angular.fromJson(storage.getItem(key));
@@ -26,7 +26,7 @@ export default function storageBase(storage){
 
 		/*设置缓存
 		@key string 缓存标识
-		@data object 缓存的对象	
+		@data object 缓存的对象
 		*/
 		this.setJson=function(key,data){
 			return storage.setItem(key,angular.toJson(data));
