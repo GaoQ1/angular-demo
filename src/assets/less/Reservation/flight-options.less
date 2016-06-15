@@ -1,0 +1,195 @@
+header{
+  background: @blue;
+}
+.headerDate{
+  width: 100%;
+  .flex_box_container();
+  color: @c_fff;
+  padding: 1rem;
+  justify-content: space-between;
+  align-items: center;
+  .preDate,.nextDate{
+    border: 1px solid @c_fff;
+    border-radius: 20px;
+    height: 2rem;
+    line-height: 2rem;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+  .preDate{
+    background: url("@{pic_url}whitejt.png") no-repeat 0.5rem center;
+    background-size: 1.2rem auto;
+    padding: 0 1rem 0 2rem;
+  }
+  .nextDate{
+    background: url("@{pic_url}whiteright.png") no-repeat 90% center;
+    background-size: 1.2rem auto;
+    padding: 0 2rem 0 1rem;
+  }
+  .Date{
+    font-size: 1.6rem;
+    position: relative;
+    padding-right: 1.6rem;
+    white-space: nowrap;
+    margin: 0 1%;
+    span{
+      font-size: 1.3rem;
+      display: inline-block;
+      margin-left: 0.3rem;
+    }
+    &:after{
+      content: "";
+      width: 0;
+      height: 0;
+      border-width: 0.6rem;
+      border-style: solid;
+      border-color: @c_fff transparent transparent transparent;
+      position: absolute;
+      right: 0;
+      top: 1rem;
+    }
+  }
+}
+
+
+
+.flightOptions{
+  padding: 1rem;
+  .options{
+     border: 1px solid #d2d2d5;
+    .border-radius(5px);
+    background: @c_fff;
+    padding: 2% 3%;
+    margin-bottom: 1rem;
+  }
+  .options-top{
+    .flex_box_container();
+    justify-content: space-between;
+    .op-Left{
+      .flex_box_container();
+      .box_flex(1);
+      .options-left,.options-right{
+        color: #4A586A;
+        span{
+          font-size: 2.4rem;
+          color: #4A586A;
+        }
+        p{
+          color: #798CA4;
+          font-size: 1.4rem;
+          font-weight: lighter;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
+        }
+      }
+      .options-right{
+        position: relative;
+        padding-right: 1.2rem;
+        i{
+          color: #FF7F00;
+          font-size: 1.3rem;
+          position: absolute;
+          right: 0;
+          top: 0.1rem;
+        }
+      }
+      .options-cen{
+        width: 5.2rem;
+        font-size: 1.2rem;
+        text-align: center;
+        background: url("@{pic_url}quan.png") no-repeat center 0.3rem;
+        background-size: 100% auto;
+        margin: -1% 2% 0;
+        span{
+          color: #FF7F00;
+          display: block;
+          line-height: 180%;
+        }
+        p{
+          color: #798CA4;
+        }
+      }
+    }
+    .ticket-price{
+      p{
+        text-align: right;
+        color: #FF7F00;
+        &.fir{
+          font-weight: lighter;
+        }
+        &.sec{
+          font-size: 1.8rem;
+          font-weight: bolder;
+          i{
+            font-weight: lighter;
+            font-size: 2.4rem;
+          }
+          span{
+            font-size: 1.2rem;
+          }
+        }
+      }
+    }
+  }
+  .options-bot{
+    font-weight: lighter;
+    .flex_box_container();
+    justify-content: space-between;
+    p{
+      color: #798CA4;
+      background: url("@{pic_url}logos.png") no-repeat left center;
+      padding-left: 2rem;
+      background-size: auto 1.4rem;
+    }
+    .picketNum{
+      color: #59A5F0;
+      &.jinz{
+        color: #FF2626;
+      }
+    }
+  }
+}
+.searchFoot{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background: rgba(74,88,106,0.95);
+  .flex_box_container();
+  color: @c_fff;
+  padding: 1% 0;
+  .searchIc{
+    font-size: @font24;
+    font-weight: lighter;
+    .box_flex(1);
+    text-align: center;
+    p{
+      line-height: 1;
+      &:before{
+        font-size: 3rem;
+      }
+    }
+    &.lastIcon{
+      position: relative;
+    }
+    .btnJt{
+      display: block;
+      content: "";
+      width: 0;
+      height: 0;
+      border-width: 0.07rem;
+      border-style: solid;
+      position: absolute;
+      right: 22%;
+      &.toUp{
+        border-color: transparent transparent @c_fff transparent;
+        top: 0.1rem;
+      }
+      &.toLow{
+        border-color: rgba(255,255,255,0.42) transparent transparent transparent;
+        top: 0.3rem;
+      }
+    }
+  }
+}

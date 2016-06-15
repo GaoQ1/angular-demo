@@ -1,0 +1,99 @@
+.admissionTicket{
+  .admission{
+    .box_flex(1);
+    padding-left: 2.6rem;
+    font-size: 1.5rem;
+  }
+  .nextCo{
+    width: 30%;
+    font-size: 1.6rem;
+  }
+}
+.addPeople{
+  width: 100%;
+  background: rgba(83,98,119,0.9);
+  color: @c_fff;
+  padding: 0 0.3rem 0 1rem;
+  position: absolute;
+  left: 0;
+  bottom: 4.4rem;
+  .peopleBox{
+    height: 4.4rem;
+    line-height: 4.4rem;
+    .flex_box_container();
+    justify-content: space-between;
+    .iconfont{
+      font-size: 2rem;
+    }
+    .numAdd{
+      border-bottom: 1px dashed @c_fff;
+      justify-content: space-between;
+      .box_flex(1);
+      .flex_box_container();
+      margin-left: 2%;
+      .box_pack(@val:center);
+      .ages{
+        .flex_box_container();
+        .box_flex(1);
+        p{
+          font-size: 1.6rem;
+          line-height: 4.4rem;
+        }
+        .sm{
+          font-size: 1.2rem;
+          margin-left: 2%;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
+        }
+      }
+      .addNo{
+        .flex_box_container();
+        width: 36%;
+        div{
+          width: 3.5rem;
+          height: 2.8rem;
+          line-height: 2.8rem;
+          text-align: center;
+          color: #536277;
+          background: @c_fff;
+          &.noLeft,&.noRight{
+            line-height: 2.2rem;
+            font-weight: 900;
+            font-size: 3rem;
+          }
+          &.noLeft{
+            .border-radius(5px 0 0 5px);
+            &.qs{
+              color: rgba(83,98,119,0.5);
+            }
+          }
+          &.noRight{
+            .border-radius(0 5px 5px 0);
+          }
+          &.noCen{
+            margin: 0 1%;
+            font-family: Arial;
+            font-weight: bold;
+            font-size: 2.4rem;
+          }
+        }
+      }
+    }
+    &.lastChild .numAdd{
+      border-bottom: none;
+    }
+  }
+}
+@media (max-width:320px){
+  .addPeople .peopleBox .numAdd .addNo{
+    width: 40%;
+  }
+  .addPeople .peopleBox .numAdd .ages{
+    flex-wrap: wrap;
+    line-height: 2rem;
+    p{
+      line-height: 2rem;
+    }
+  }
+}

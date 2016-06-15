@@ -1,0 +1,50 @@
+@rem: 200rem;
+@font16:16/@rem;
+@font18:18/@rem;
+@font20:20/@rem;
+@font22:0.11rem;
+@font24:0.12rem; 
+@font26:0.13rem;
+@font28:0.14rem;
+@font30:0.15rem;
+@font32:32/@rem;
+@font34:34/@rem;
+@font36:36/@rem;
+@font38:38/@rem;
+@font40:40/@rem;
+@font50:50/@rem;
+@font60:60/@rem;
+
+//公用color 
+@c_fff:#fff;
+@c_000:#000;
+@c_333:#333;
+@c_444:#444;
+@c_666:#666;
+@c_999:#999;
+@c_a8b2c2:#a8b2c2;
+@c_e0edfc:#e0edfc;
+@c_e1e1e1:#e1e1e1;
+@c_b5b5b5:#b5b5b5;
+@c_a7b2c1:#a7b2c1;
+@c_4A586A:#4A586A;
+@c_4a586a:#4a586a;
+@c_c8c8c8:#c8c8c8;
+@c_d1d5de:#d1d5de;
+@blue:#59a5f0;
+@red:#eb3541;
+@orange:#FF7F00;
+@c_d6d6d6:#d6d6d6;
+@gray:#96A2B5;
+@green:#79CD31; 
+.orange{ color: @orange;}
+.blue{ color: @blue;}
+
+
+.box_pack(@val:start){
+  box-pack: @val;
+  -moz-box-pack: @val;
+  -o-box-pack: @val;
+  -webkit-box-pack: @val;
+  align-items:@val;
+}

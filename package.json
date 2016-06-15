@@ -1,0 +1,49 @@
+{
+  "name": "disnet-app",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "concurrently \"npm run webpack:w\" \"npm run server\"",
+    "product": "webpack --production",
+    "server": "node ./bin/www",
+    "webpack:w": "webpack -w",
+    "webpack": "webpack",
+    "proxy":"node ./httpProxy/http-proxy"
+  },
+  "dependencies": {
+    "angular": "^1.5.6",
+    "angular-animate": "^1.5.6",
+    "body-parser": "~1.13.2",
+    "cookie-parser": "~1.3.5",
+    "debug": "~2.2.0",
+    "express": "~4.13.1",
+    "fastclick": "^1.0.6",
+    "jade": "~1.11.0",
+    "morgan": "~1.6.1",
+    "serve-favicon": "~2.3.0",
+    "ui-router": "^1.0.0-alpha0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.9.1",
+    "babel-loader": "^6.2.4",
+    "babel-plugin-transform-runtime": "^6.9.0",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.5.0",
+    "babel-runtime": "^6.9.2",
+    "concurrently": "^2.1.0",
+    "css-loader": "^0.23.1",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.8.5",
+    "html-webpack-plugin": "^2.21.0",
+    "http-proxy": "^1.13.3",
+    "img-loader": "^1.2.2",
+    "js-yaml": "^3.6.1",
+    "less": "^2.7.1",
+    "less-loader": "^2.2.3",
+    "ng-cache-loader": "0.0.15",
+    "sax": "^1.2.1",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.13.1",
+    "whet.extend": "^0.9.9"
+  }
+}

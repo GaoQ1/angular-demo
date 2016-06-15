@@ -1,0 +1,191 @@
+.fillInformation{
+   color: #4A586A;
+   .addNum{
+     background: @c_fff;
+     padding-left: 1.5rem;
+     border-bottom: 1px solid #C7C7C9;
+     h5{
+       font-size: 1.5rem;
+       border-bottom: 1px solid #C7C7C9;
+       height: 5.4rem;
+       line-height: 5.4rem;
+       position: relative;
+       &:after{
+         content: "";
+         width: 3.6rem;
+         height: 3.6rem;
+         border: 1px solid @blue;
+         background: url("@{pic_url}jia.png") no-repeat center center;
+         background-size: 64% auto;
+         position: absolute;
+         right: 1.5rem;
+         top: 0.9rem;
+         .border-radius(50%);
+       }
+       i{
+         color: #D27166;
+         font-size: 2.4rem;
+         &.tx{
+           color: #536277;
+           margin: 0 2%;
+         }
+       }
+
+     }
+     .messName{
+       .flex_box_container();
+       height: 5.4rem;
+       line-height: 5.4rem;
+       position: relative;
+       i{
+         color: #D27166;
+         font-size: 2.4rem;
+         &.tx{
+           margin: 0 2%;
+           color: #536277;
+         }
+       }
+       .contMess{
+         padding-top: 0.5rem;
+
+       }
+       &:after{
+         content: "";
+         width: 0.96rem;
+         height: 1.6rem;
+         background: url("@{pic_url}grayjt.png") no-repeat;
+         background-size: 100% auto;
+         position: absolute;
+         right: 1.5rem;
+         top: 50%;
+         margin-top: -0.8rem;
+       }
+     }
+   }
+  .warning{
+    border-bottom: 1px solid #C7C7C9;
+    height: 5.4rem;
+    line-height: 5.4rem;
+    .flex_box_container();
+    justify-content: space-between;
+    color: #929FB1;
+    font-size: 1.3rem;
+    padding: 2.6rem 1.5rem 0;
+    p.xq{
+      color: #59A5F0;
+    }
+  }
+  .fillIn{
+    background: @c_fff;
+    padding-left: 1.5rem;
+    .inputMess{
+      height: 5.4rem;
+      line-height: 5.4rem;
+      border-bottom: 1px solid #C7C7C9;
+      .flex_box_container();
+      &.zj{
+        position: relative;
+        &:after{
+          content: "";
+          width: 0.96rem;
+          height: 1.6rem;
+          background: url("@{pic_url}grayjt.png") no-repeat;
+          background-size: 100% auto;
+          position: absolute;
+          right: 1.5rem;
+          top: 50%;
+          margin-top: -0.8rem;
+        }
+      }
+      &:last-child{
+        border-bottom: none;
+      }
+      label{
+        display: inline-block;
+        width: 30%;
+        font-size: 1.6rem;
+      }
+      .outPut{
+        width: 68%;
+        input,.select-zj{
+          font-family: "Microsoft YaHei", "Segoe UI", "Lucida Grande", Helvetica, Arial, "Droid Sans", "wenquanyi micro hei", "Hiragino Sans GB", "Hiragino Sans GB W3", "FontAwesome", sans-serif;
+        }
+        input{
+          border: none;
+          background: none;
+          height: 5.4rem;
+          line-height: 5.4rem;
+          width: 100%;
+          padding-left: 2%;
+          font-size: 1.5rem;
+        }
+        .select-zj{
+          appearance: none;
+          -webkit-appearance: none;
+          background-color: transparent;
+          border: none;
+          color: #59A5F0;
+          font-size: 1.5rem;
+          width: 100%;
+        }
+      }
+      ul{
+        .flex_box_container();
+        padding-top: 0.75rem;
+        li{
+          width: 5rem;
+          height: 3.9rem;
+          line-height: 3.9rem;
+          border: 2px solid #9FCBF7;
+          background: #E0EEFC;
+          .border-radius(5px);
+          text-align: center;
+          color: #59A5F0;
+          font-weight: bold;
+          font-family: arial;
+          margin-right: 2%;
+          font-size: 2rem;
+          &.current{
+            color: @c_fff;
+            background: @orange;
+            border-color: @orange;
+          }
+        }
+      }
+    }
+  }
+  .statement{
+    padding: 1rem 1.5rem;
+    border-top: 1px dotted #D6D6D6;
+    color: @orange;
+    background: @c_fff url("@{pic_url}xr.png") no-repeat 1.5rem center;
+    background-size: 2.56rem auto;
+    border-bottom: 1px solid #C7C7C9;
+    p{
+      padding-left: 2.8rem;
+      line-height: 130%;
+    }
+  }
+  .fillCot{
+    border-top: 1px solid #C7C7C9;
+    border-bottom: 1px solid #C7C7C9;
+    margin-top: 2.6rem;
+  }
+}
+.payGo{
+  .nextCo{
+    background: #FF9A16;
+    font-size: 1.8rem;
+    position: relative;
+    &:after{
+      position: absolute;
+      content: "";
+      width: 1.344rem;
+      height: 1.664rem;
+      background: url("@{pic_url}whiteright.png") no-repeat;
+      background-size: 100% auto;
+      right: 1.2rem;
+      top: 2rem;
+    }
+  }
+}

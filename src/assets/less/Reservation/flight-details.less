@@ -1,0 +1,198 @@
+.flightTop{
+  padding: 1rem 2rem;
+  font-size: 1.3rem;
+  .flightDetails{
+    .flex_box_container();
+    color: #C5DFF8;
+    justify-content: space-between;
+    background: url("@{pic_url}mark-bg.png") no-repeat center 3rem;
+    background-size: 48% auto;
+  }
+  .detailsLeft,.detailsRight{
+    p{
+      margin-bottom: 10%;
+    }
+    b{
+      font-size: 2.6rem;
+      color: @c_fff;
+      display: block;
+      font-weight: normal;
+    }
+    span{
+      display: block;
+      margin-top: 12%;
+    }
+  }
+  .detailCen{
+    font-size: 1.2rem;
+    text-align: center;
+    padding-top: 1rem;
+    span{
+      width: 2rem;
+      height: 2rem;
+      color: #59A5F0;
+      text-align: center;
+      line-height: 2rem;
+      background: @blue;
+      .border-radius(0.8rem);
+      display: block;
+      background: #acd2f8;
+      font-size: 1.4rem;
+      margin: 2.6rem auto 0;
+    }
+  }
+  .detailsRight{
+    text-align: right;
+  }
+  .flightBottom{
+    color: #ACD2F8;
+    .flex_box_container();
+    justify-content: space-between;
+    margin-top: 1%;
+    .visa{
+      background: url("@{pic_url}i.png") no-repeat left center;
+      background-size: 1.3rem auto;
+      padding-left: 1.6rem;
+    }
+  }
+}
+.tabMenu{
+  border-bottom: 1px solid #D2D2D5;
+  background: @c_fff;
+  ul{
+    .flex_box_container();
+    li{
+      font-size: 1.5rem;
+      color: #4A586A;
+      .box_flex(1);
+      height: 3.5rem;
+      line-height: 3.5rem;
+      text-align: center;
+      &.acitve{
+        color: #59A5F0;
+        border-bottom: 2px solid @blue;
+      }
+    }
+  }
+}
+.tanMain{
+  padding: 1rem;
+  .tabLi{
+    padding: 0.6rem 0.8rem;
+    background: @c_fff;
+    .border-radius(10px);
+    border: 1px solid #D2D2D5;
+    margin-bottom: 1rem;
+    .tabTop{
+      .flex_box_container();
+      justify-content: space-between;
+    }
+    .tabLeft{
+      width: 55%;
+      h5{
+        font-size: 1.6rem;
+        color: #4A586A;
+        font-weight: normal;
+      }
+      ul li{
+        display: inline-block;
+        border: 1px solid #73869f;
+        text-align: center;
+        width: 5.6rem;
+        height: 1.66rem;
+        line-height: 1.66rem;
+        .border-radius(20px);
+        color: #798CA4;
+        margin-right: 2%;
+        font-size: 1.2rem;
+      }
+    }
+    .tabRight{
+      padding-top: 1rem;
+      .flex_box_container();
+      justify-content: flex-end;
+      .box_flex(1);
+       .tabCen {
+         color: @orange;
+         text-align: right;
+         margin-right: 2%;
+         span{
+           font-weight: lighter;
+         }
+         p.price {
+           font-size: 1.8rem;
+           font-weight: bolder;
+           white-space: nowrap;
+           line-height: 120%;
+           i {
+             font-weight: lighter;
+           }
+           span {
+             font-size: 1.2rem;
+           }
+         }
+       }
+       .bookBtn{
+         display: block;
+         color: @c_fff;
+         width: 5.5rem;
+         height: 3.4rem;
+         line-height: 3.4rem;
+         background: #FF9A16;
+         text-align: center;
+         .border-radius(5px);
+         margin: 3% 0 0 5%;
+       }
+    }
+    .tabBot{
+      position: relative;
+      height: 3rem;
+      .jifen{
+        color: @orange;
+        font-size: 1.2rem;
+        width: 10.6rem;
+        height: 2rem;
+        line-height: 2rem;
+        padding: 0 0 0 1rem;
+        .flex_box_container();
+        justify-content: space-between;
+        background: url("@{pic_url}cir-bg.png") no-repeat left center;
+        background-size: 100% auto;
+        position: absolute;
+        top: 0.5rem;
+        p{
+          line-height: 2rem;
+        }
+        span{
+          color: @c_fff;
+          font-size: 1.3rem;
+          font-weight: bold;
+          display: block;
+          text-align: center;
+          width: 45%;
+          .border-radius(0 20px 20px 0);
+          padding: 0 0.5rem 0 0;
+        }
+      }
+      .rightBot{
+        p.tg{
+          font-size: 1.3rem;
+          color: #72859E;
+          text-align: right;
+          margin-top: -1%;
+        }
+        span{
+          font-weight: lighter;
+          color: #72859E;
+          text-align: center;
+          line-height: 150%;
+          display: inline-block;
+          margin-left: 1rem;
+          &.sy{
+            color: @orange;
+          }
+        }
+      }
+    }
+  }
+}

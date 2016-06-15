@@ -1,0 +1,90 @@
+.addressTab{
+  background: @c_fff;
+  font-size: 1.3rem;
+   ul{
+     .flex_box_container();
+     li{
+       height: 3.2rem;
+       line-height: 3.2rem;
+       .box_flex(1);
+       text-align: center;
+       &.active{
+         background: #00265d;
+         color: @c_fff;
+       }
+     }
+   }
+}
+.tabIndex{
+  width: 100%;
+  background: #aa002c;
+  .DesBox{
+    padding: 1.7rem 0 2.3rem;
+    display: none;
+    &.active{
+      display: block;
+    }
+    h5{
+       height: 2.4rem;
+       line-height: 2.4rem;
+       font-size: 1.2rem;
+       color: #00265d;
+       text-align: center;
+       background: url("@{pic_url}h5-bg.png") no-repeat center center;
+       background-size: auto 2.4rem;
+       b{
+         font-weight: 900;
+       }
+    }
+    .desDiv{
+      background: @c_fff;
+      width: 94%;
+      margin: 3% auto 0;
+      &.firDiv{
+        margin-top: 4%;
+      }
+    }
+    .detail{
+      .flex_box_container();
+      .box_pack(@val:center);
+      padding: 2% 3%;
+      .detailLeft{
+        .box_flex(1);
+        padding-right: 5%;
+        h3{
+          font-size: 1.2rem;
+          color: #212121;
+        }
+        p{
+          font-size: 1.1rem;
+          color: #242424;
+          -webkit-box-orient: vertical;
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          overflow: hidden;
+        }
+      }
+      .detailRight{
+        width: 7.6rem;
+        background: #aa002c;
+        color: @c_fff;
+        text-align: center;
+        .border-radius(0.6rem);
+        p{
+          height: 2rem;
+          line-height: 2rem;
+          font-size: 1.2rem;
+          background: #00265d;
+          .border-radius(0.6rem 0.6rem 0 0);
+        }
+        a.buy{
+          font-weight: 900;
+          display: block;
+          height: 2.6rem;
+          line-height: 2.6rem;
+          color: @c_fff;
+        }
+      }
+    }
+  }
+}

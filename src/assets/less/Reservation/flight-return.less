@@ -1,0 +1,65 @@
+.flightReturn{
+   .Date{
+     background: @c_fff;
+     color: @blue;
+     .border-radius(5px);
+     padding: 1% 2.2rem 1% 3%;
+     b{
+       font-weight: bold;
+       color: @orange;
+       font-size: 1.8rem;
+       display: inline-block;
+       i{
+         font-weight: normal;
+         font-size: 1.2rem;
+       }
+     }
+     &:after{
+       border-color: @blue transparent transparent transparent;
+       right: 4%;
+       top: 1.2rem;
+     }
+   }
+}
+.returnMess{
+  color: #4A586A;
+  padding: 1rem 1rem 0;
+  .messDetail{
+    background: rgba(255,255,255,0.7);
+    .border-radius(5px);
+    height: 2.6rem;
+    line-height: 2.6rem;
+    .flex_box_container();
+    .messLeft{
+      width: 3.5rem;
+      height: 2.6rem;
+      background: @c_fff;
+      .border-radius(5px 0 0 5px);
+      border-right: 1px dotted #D6D6D6;
+      .flex_box_container();
+      justify-content: center;
+      .box_pack(@val:center);
+      span{
+        width: 2rem;
+        height: 2rem;
+        color: @c_fff;
+        text-align: center;
+        line-height: 2rem;
+        background: @blue;
+        .border-radius(0.8rem);
+        display: block;
+      }
+    }
+    .messRight{
+      .box_flex(1);
+      margin-left: 1rem;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+      padding-right: 2%;
+    }
+  }
+}
+.returnOptions .options-bot .picketNum{
+  color: #72859E;
+}

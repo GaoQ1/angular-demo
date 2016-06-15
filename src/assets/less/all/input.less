@@ -1,0 +1,158 @@
+//开关
+.onoffswitch {
+    position: relative; width: 60px;
+    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+}
+.onoffswitch-checkbox {
+    display: none;
+}
+.onoffswitch-label {
+    display: block; overflow: hidden; cursor: pointer;
+    height: 36px; padding: 0; line-height: 36px;
+    border: 2px solid #CCCCCC; border-radius: 36px;
+    background-color: #FFFFFF;
+    transition: background-color 0.3s ease-in;
+}    
+.onoffswitch-label:before {
+    content: "";
+    display: block; width: 36px; margin: 0px;
+    background: #FFFFFF;
+    position: absolute; top: 0; bottom: 0;
+    right: 22px;
+    border: 2px solid #CCCCCC; border-radius: 36px;
+    transition: all 0.3s ease-in 0s;   
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label {
+    background-color: #49E845;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label, .onoffswitch-checkbox:checked + .onoffswitch-label:before {
+   border-color: #49E845;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label:before {
+    right: 0px; 
+}
+//开关小
+.onoffswitch2 {
+    position: relative; width:0.35rem;
+    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+}
+.onoffswitch2-checkbox {
+    display: none;
+}
+.onoffswitch2-label {
+    display: block; overflow: hidden; cursor: pointer;
+    height:0.2rem; padding: 0; line-height:0.2rem;
+    border: 2px solid #CCCCCC; border-radius:0.2rem;
+    background-color: #FFFFFF;
+    transition: background-color 0.3s ease-in;
+}
+.onoffswitch2-label:before {
+    content: "";
+    display: block; width:0.2rem; margin: 0px;
+    background: #FFFFFF;height: 0.2rem;
+    position: absolute; top: 0; bottom: 0;
+    right:0.13rem;
+    border: 2px solid #CCCCCC; border-radius: 0.2rem;
+    transition: all 0.3s ease-in 0s;
+}
+.onoffswitch2-checkbox:checked + .onoffswitch2-label {
+    background-color: #49E845;
+}
+.onoffswitch2-checkbox:checked + .onoffswitch2-label, .onoffswitch2-checkbox:checked + .onoffswitch2-label:before {
+    border-color: #49E845;
+}
+.onoffswitch2-checkbox:checked + .onoffswitch2-label:before {
+    right: 0px;
+}
+//checkbox
+
+
+//radio
+.input-radio{
+    
+}
+
+.input-radio {
+    display: none;
+}
+
+.input-radio + label {
+  //  -webkit-appearance: none;
+    background-color: #fafafa;
+    border: 2px solid #cacece;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+    padding: 9px;
+    border-radius: 50px;
+    display: inline-block;
+    position: relative;
+}
+
+.input-radio:checked + label:after {
+    content: '\e907';
+    width: 12px;
+    height: 12px;
+    text-align: center;
+    border-radius: 50px;
+    position: absolute;
+    top: -7px;
+    left: -7px;
+    font-size: 32px;
+    color: @blue;
+}
+
+.input-radio:checked + label {
+    background-color: #FFF;
+    border: 2px solid @blue;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1), inset 0px 0px 10px rgba(0,0,0,0.1);
+}
+
+.input-radio + label:active, .input-radio:checked + label:active {
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+}
+
+
+.input-checkbox {
+    display: none;
+}
+
+.input-checkbox + label {
+    background-color: #fafafa;
+    border: 2px solid #cacece;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+    padding: 9px;
+    border-radius: 3px;
+    display: inline-block;
+    position: relative;
+}
+
+.input-checkbox + label:active, .input-checkbox:checked + label:active {
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+}
+
+.input-checkbox:checked + label {
+    background-color: #FFF;
+    border: 2px solid @blue;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);
+    color: #99a1a7;
+}
+
+.input-checkbox:checked + label:after {
+    content: '\e907';
+    font-size: 32px;
+    position: absolute;
+    top: -7px;
+    left: -7px;
+    color: @blue;
+}
+
+
+.tag {
+    font-family: Arial, sans-serif;
+    width: 200px;
+    position: relative;
+    top: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: block;
+    float: left;
+}

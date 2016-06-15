@@ -1,0 +1,117 @@
+.bgCover{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: url("@{pic_url}black-bg.jpg") repeat;
+  .roundTrip{
+    background: @c_fff;
+    padding: 1rem 0 0;
+    .border-radius(0.5rem);
+    width: 90%;
+    position: absolute;
+    left: 5%;
+    top: 18%;
+    font-weight: normal;
+    .roundDetails{
+      color: #9CAABC;
+      .flex_box_container();
+      padding-bottom: 1%;
+      border-bottom: 1px dotted #D6D6D6;
+      position: relative;
+      .roundLeft,.roundRight{
+        .box_flex(1);
+        padding: 0 1.5rem;
+        p{
+          font-weight: normal;
+        }
+        b{
+          color: #444;
+          font-size: 2.4rem;
+          display: block;
+          font-weight: normal;
+        }
+      }
+      .roundRight{
+        text-align: right;
+        .box_flex(1);
+      }
+      .roundCen{
+        position: absolute;
+        text-align: center;
+        left: 50%;
+        margin-left: -8rem;
+        top: 0.8rem;
+        p{
+          color: #ACD2F7;
+          line-height: 120%;
+        }
+        mark{
+          width: 16rem;
+          height: 2.3rem;
+          display: block;
+          background: url("@{pic_url}bluefly.png") no-repeat center center;
+          background-size: 80% auto;
+        }
+      }
+    }
+    .roundBottom{
+      padding: 0 1.5rem 0;
+      color: #7A8CA4;
+      font-size: 1.3rem;
+      .flex_box_container();
+      justify-content: space-between;
+      align-items: center;
+      p{
+        height: 3.6rem;
+        line-height: 3.6rem;
+      }
+      .bgRed{
+        width: 2rem;
+        height: 2rem;
+        line-height: 2rem;
+        color: #fff;
+        text-align: center;
+        .border-radius(0.8rem);
+        display: block;
+        background: #E86051;
+        font-size: 1.4rem;
+      }
+    }
+    .firsTrip{
+      border-bottom: 2px solid #A0A8B5;
+      .roundBottom{
+        padding-bottom: 2%;
+      }
+    }
+    .secTrip{
+      padding-top: 3%;
+    }
+  }
+  .returnGo{
+    margin-top: 1.5rem;
+    top: 56%;
+  }
+  .roundMes{
+    width: 84%;
+    height: 2.2rem;
+    position: absolute;
+    top: 50%;
+    margin-top: -0.8rem;
+    left: 8%;
+    background: #B4BECC;
+    line-height: 2.2rem;
+    color: @c_fff;
+    .flex_box_container();
+    justify-content: space-between;
+    padding: 0 3%;
+    .border-radius(2rem);
+    border: 1px solid #A0A8B5;
+  }
+}
+@media (max-width:320px){
+  .bgCover .roundTrip .roundDetails .roundCen mark{
+    background-size: 64% auto;
+  }
+}

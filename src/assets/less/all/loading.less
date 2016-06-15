@@ -1,0 +1,64 @@
+.ajax_loading{
+    width: 100%; 
+    height: 100%; 
+    position: fixed; 
+    left: 0;
+    top: 0;
+    z-index: 100000;
+    .info{ 
+        display: block;
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 50%;   
+        margin: -30px 0 0 -30px;
+        background: url("@{pic_url}loading.gif") no-repeat;
+        background-size:42px 42px ;
+        width: 100%;
+        height:60px;
+        z-index: 3;
+    }
+    .mask{
+        background: #FFF;
+        width: 100%;   
+        height: 100%;
+        top: 0;
+        position: absolute;
+        left: 0;
+        .opacity(90)
+    }
+    &.absolute{
+        position: absolute;
+        background: #FFF;
+        .mask{
+            top: 0;
+        }
+    }
+}
+
+
+.ajax_loading{
+    width: 100%; 
+    height: 100%; 
+    position: fixed; 
+    left: 0;
+    top: 0;
+    z-index: 100000;
+    
+}
+.ajax_loading.absolute{
+    position: absolute;
+    background: #FFF;
+    .mask{
+        top: 0;
+    }
+}
+.ajax_loading .mask{
+    background: #FFF;
+    width: 100%;   
+    height: 100%;
+    top: 0;
+    position: absolute;
+    left: 0;
+    .opacity(90)
+}

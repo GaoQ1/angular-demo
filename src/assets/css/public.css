@@ -1,0 +1,67 @@
+body, html{
+	max-width: 640px;
+	font-size: 62.5%;
+}
+body, html,ul,li,dl,dd,p,h1,h2,h3,h4,h5{
+	margin: 0;
+	padding: 0;
+	word-break: break-all;
+	-ms-word-wrap: break-word;
+	word-wrap: break-word;
+	line-height: 180%;
+}
+img{
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+/*li,dd{list-style: none;}*/
+em,h4{font-style:normal; font-weight: normal}
+/* Reset */
+i{ font-style: normal;}
+*{
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+:before,:after{
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+input:focus{ border: none;}
+body{
+	font-weight: 500;
+	font-size: 1.4rem;
+	font-family: "Segoe UI", "Lucida Grande", Helvetica, Arial, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans", "wenquanyi micro hei", "Hiragino Sans GB", "Hiragino Sans GB W3", "FontAwesome", sans-serif;
+	color: #2e1623;
+	min-height: 100%;
+	width: 100%;
+	-webkit-overflow-scrolling: touch ;
+}
+ul,ol{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+}
+
+.view-animation.ng-enter, .view-animation.ng-leave {
+  transition:0.5s linear all;
+  position:fixed;
+  height: 100%;
+  left:0;
+  top:0;
+  width:100%;
+  background: #FFF;
+}
+.view-animation.ng-enter {
+  transform:translateX(100%);
+}
+.view-animation.ng-leave,
+.view-animation.ng-enter.ng-enter-active {
+  transform:translateX(0%);
+}
+.view-animation.ng-leave.ng-leave-active {
+  transform:translateX(-100%);
+}

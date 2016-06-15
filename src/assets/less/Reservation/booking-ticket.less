@@ -1,0 +1,251 @@
+.bookTicket{
+  padding-bottom: 7rem;
+}
+.ticketDetail{
+   width: 100%;
+  background: @blue;
+  padding: 1rem;
+  .flightMess{
+    color: #4A586A;
+    font-size: 1.3rem;
+    &.addJt .mess{
+      position: relative;
+      &:after{
+        content: "";
+        width: 0.96rem;
+        height: 1.6rem;
+        background: url("@{pic_url}addjt.png") no-repeat;
+        background-size: 100% auto;
+        position: absolute;
+        right: 1rem;
+        top: 50%;
+        margin-top: -0.8rem;
+      }
+    }
+    .messTop{
+      .flex_box_container();
+      justify-content: space-between;
+      color: @c_fff;
+      .titChoose{
+        padding-bottom: 1%;
+      }
+    }
+    .mess{
+      background: @c_fff;
+      .border-radius(0.64rem);
+      padding: 0 1rem;
+      .oneMess{
+        .flex_box_container();
+        height: 3rem;
+        line-height: 3rem;
+        p{
+          line-height: 3rem;
+          &.dateS{
+            margin: 0 1.6rem 0 0.8rem;
+          }
+        }
+        .bgBlue{
+          width: 2rem;
+          height: 2rem;
+          line-height: 2rem;
+          color: @c_fff;
+          text-align: center;
+          background: @blue;
+          .border-radius(0.8rem);
+          display: block;
+          background: #acd2f8;
+          font-size: 1.4rem;
+          margin-top: 0.6rem;
+        }
+        .messStart{
+          .flex_box_container();
+          align-items: center;
+          .box_flex(1);
+          span{
+            font-weight: lighter;
+            display: block;
+            white-space: nowrap;
+            b{
+              font-weight: 900;
+              font-family: "微软雅黑";
+            }
+          }
+          mark{
+            display: block;
+            width: 3.4rem;
+            height: 0.8rem;
+            background: url("@{pic_url}qq.png") no-repeat left center;
+            background-size: 100% auto;
+            margin: 0 2%;
+          }
+        }
+      }
+    }
+  }
+  .dsnMes{
+    margin-top: 2%;
+    .oneMess{
+      &:first-child{
+        border-bottom: 1px dotted #9ECAF6;
+      }
+      i{
+        width: 2.6rem;
+        color: #D27166;
+        font-size: 2.4rem;
+        display: block;
+      }
+      .messStart{
+        margin-left: 2%;
+        p{
+          margin-left: 2%;
+        }
+      }
+
+    }
+  }
+  .titP{
+    color: @c_fff;
+    text-align: right;
+    margin-top: 1%;
+  }
+}
+.bookingTicket{
+  background: @c_fff;
+  padding: 0 1rem;
+  .h5Tit{
+    font-size: 1.6rem;
+    color: #526177;
+    height: 5.4rem;
+    line-height: 5.4rem;
+    border-bottom: 1px dotted #A7B2C1;
+    font-weight: normal;
+  }
+  .choose{
+    .flex_box_container();
+    height: 8rem;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 2rem;
+    position: relative;
+    span{
+      display: block;
+      color: #A6B2C0;
+      font-weight: lighter;
+      &.otherCo{
+        color: #526077;
+      }
+    }
+    ul{
+      .flex_box_container();
+      font-size: 1.3rem;
+      justify-content: space-between;
+      .box_flex(1);
+      margin: 0 0.9rem;
+      li{
+        color: @c_fff;
+        width: 5rem;
+        height: 5rem;
+        background: @orange;
+        border: 1px solid @orange;
+        text-align: center;
+        .border-radius(1rem);
+        margin-right: 1%;
+        b{
+          display: block;
+          margin-top: 0.5rem;
+          font-weight: normal;
+        }
+        &.last{
+          background: #e4effc;
+          border: 1px solid #00a8ff;
+          color: #00a8ff;
+          b{
+            line-height: 5rem;
+            margin-top: 0;
+          }
+        }
+      }
+    }
+    &:after{
+      content: "";
+      width: 0.96rem;
+      height: 1.6rem;
+      background: url("@{pic_url}grayjt.png") no-repeat;
+      background-size: 100% auto;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      margin-top: -0.8rem;
+    }
+  }
+}
+.gx{
+  border-top: 1px solid #C7C7C9;
+  padding: 1rem 1rem 0 1rem;
+  .flex_box_container();
+  i{
+    color: #6B7785;
+    font-size: 2rem;
+    display: block;
+    font-weight: bold;
+  }
+  p{
+    color: #929FB1;
+    margin-left: 1%;
+    .box_flex(1);
+    span{
+      color: @blue;
+      text-decoration: underline;
+      display: inline-block;
+      margin-right: 1%;
+    }
+  }
+}
+.priceTotall{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  .flex_box_container();
+  background: #59A5F0;
+  width: 100%;
+  height: 4.4rem;
+  line-height: 4.4rem;
+  color: @c_fff;
+  .priceLeft{
+    .box_flex(1);
+    .flex_box_container();
+    font-size: 1.5rem;
+    padding-left: 1.2rem;
+    position: relative;
+    .pricet{
+      font-size: 2.2rem;
+      font-weight: lighter;
+       b{
+         font-size: 1.6rem;
+         font-weight: normal;
+       }
+    }
+    .mx{
+      .box_flex(1);
+      text-align: right;
+      padding-right: 3.6rem;
+    }
+    &:after{
+      content: "";
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0.6rem;
+      border-color: transparent transparent @c_fff transparent;
+      position: absolute;
+      right: 1.6rem;
+      top: 50%;
+      margin-top: -0.9rem;
+    }
+  }
+  .nextCo{
+    background: @orange;
+    width: 40%;
+    text-align: center;
+  }
+}
