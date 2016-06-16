@@ -9,13 +9,19 @@ import util from './UtilityModule'
 import animate from 'angular-animate'
 import fastclick from 'fastclick'
 
-
+initFastClick();
+initAppHistoryFn();
 let app= module('main', [uiRouter,disney.name,util.name,animate]);
 element(document).ready(()=>bootstrap(document, [app.name]));
-initFastClick();
 
 function initFastClick(){
 	document.addEventListener('DOMContentLoaded', function() {
 		fastclick.attach(document.body);
 	}, false);
+}
+
+function initAppHistoryFn(){
+	window.historyBack = function() {
+	 	history.go(-1);
+    };
 }

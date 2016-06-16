@@ -1,6 +1,6 @@
 disn_s_app.$inject=['$location'];
 function disn_s_app($location){
-	//login
+		//login
 	    //返回客户端类型
 	    this.ShowCus = function() {
 
@@ -20,19 +20,19 @@ function disn_s_app($location){
 	        var url = redirectUrl;
 	        url=url.replace(/\&/g,'&amp;');
 	        try{
-	        switch (customer) {
-	            case "Android":
-	                Login.clickOnLogin(url, title, "mobile_login");
-	                break;
-	            case "IOS":
-	                clickOnLogin(url, title, "mobile_login");
-	                break;
-	            case "WP":
-	                external.notify("clickOnLogin?" + url + "&" + title + "&mobile_login");
-	                break;
-	        }
+		        switch (customer) {
+		            case "Android":
+		                Login.clickOnLogin(url, title, "mobile_login");
+		                break;
+		            case "IOS":
+		                clickOnLogin(url, title, "mobile_login");
+		                break;
+		            case "WP":
+		                external.notify("clickOnLogin?" + url + "&" + title + "&mobile_login");
+		                break;
+		        }
 	    	}catch(e){
-	    		console.log(e);
+	    		
 	    	}
 	    };
 
@@ -74,31 +74,33 @@ function disn_s_app($location){
 	    }
 
 	    this.bindBack=function(isFirst){
+	    	try{
+	    		var customer = this.ShowCus();	    	
+		    	switch (customer) {
+		            case "Android":
+		            	if(!isFirst){
+		            		gotoback.clickOnback('true', 'historyBack()');	            		
+		            	}	                	
+	                	else
+	                		gotoback.clickOnback('false', '');
+		                break;
+		            case "IOS":
+		            	if(!isFirst)
+		                	clickOnback("true", "historyBack()");
+	                	else{          
+	                		clickOnback("false", "");
+	                	}
+		                break;
+		            case "WP":
+		            	if(!isFirst)
+		                	external.notify('clickOnback?true&historyBack');
+		                else
+		                	external.notify('clickOnback?true&');
+		                break;
+	        	}
+	    	}catch(e){
 
-	    	var customer = this.ShowCus();
-
-	    	switch (customer) {
-	            case "Android":
-	            	if(!isFirst){
-	            		gotoback.clickOnback('true', 'historyBack()');	            		
-	            	}	                	
-                	else
-                		gotoback.clickOnback('false', '');
-	                break;
-	            case "IOS":
-	            	if(!isFirst)
-	                	clickOnback("true", "historyBack()");
-                	else{          
-                		clickOnback("false", "");
-                	}
-	                break;
-	            case "WP":
-	            	if(!isFirst)
-	                	external.notify('clickOnback?true&historyBack');
-	                else
-	                	external.notify('clickOnback?true&');
-	                break;
-        	}
+	    	}	    	
         }
 
         this.bindTitle=function(title){

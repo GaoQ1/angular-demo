@@ -64,11 +64,11 @@
 	
 	var _UtilityModule2 = _interopRequireDefault(_UtilityModule);
 	
-	var _angularAnimate = __webpack_require__(63);
+	var _angularAnimate = __webpack_require__(67);
 	
 	var _angularAnimate2 = _interopRequireDefault(_angularAnimate);
 	
-	var _fastclick = __webpack_require__(65);
+	var _fastclick = __webpack_require__(69);
 	
 	var _fastclick2 = _interopRequireDefault(_fastclick);
 	
@@ -78,16 +78,23 @@
 	//引入css
 	//引入css
 	
+	initFastClick();
+	initAppHistoryFn();
 	var app = (0, _angular.module)('main', [_uiRouter2.default, _DisneyModule2.default.name, _UtilityModule2.default.name, _angularAnimate2.default]);
 	(0, _angular.element)(document).ready(function () {
 		return (0, _angular.bootstrap)(document, [app.name]);
 	});
-	initFastClick();
 	
 	function initFastClick() {
 		document.addEventListener('DOMContentLoaded', function () {
 			_fastclick2.default.attach(document.body);
 		}, false);
+	}
+	
+	function initAppHistoryFn() {
+		window.historyBack = function () {
+			history.go(-1);
+		};
 	}
 
 /***/ },
@@ -35045,7 +35052,7 @@
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
-	    value: true
+		value: true
 	});
 	
 	var _utilityInject = __webpack_require__(8);
@@ -35067,51 +35074,51 @@
 	__webpack_require__(42);
 	
 	exports.default = new _utilityInject.routerInject({
-	    home: { //首页
-	        url: '/disney',
-	        controller: 'homeController',
-	        templateUrl: 'disney.home.html'
-	    },
-	    fillinfo: { //填写
-	        url: '/disney/fillinfo',
-	        controller: 'fillinfoController',
-	        templateUrl: 'disney.fillinfo.html'
-	    },
-	    ticketInfo: { //机票信息选择
-	        url: '/disney/ticketInfo',
-	        controller: 'ticketInfoController',
-	        templateUrl: 'disney.ticketInfo.html'
-	    },
-	    goTicketList: { //航班选择-去程
-	        url: '/disney/goTicketList',
-	        controller: 'goTicketListController',
-	        templateUrl: 'disney.goTicketList.html'
-	    },
-	    backTicketList: { //航班选择-返程
-	        url: '/disney/backTicketList',
-	        controller: 'backTicketListController',
-	        templateUrl: 'disney.backTicketList.html'
-	    },
-	    goTicketDetail: { //航班详情
-	        url: '/disney/goTicketDetail',
-	        controller: 'goTicketDetailController',
-	        templateUrl: 'disney.ticketDetail.html'
-	    },
-	    backTicketDetail: { //航班详情
-	        url: '/disney/backTicketDetail',
-	        controller: 'backTicketDetailController',
-	        templateUrl: 'disney.ticketDetail.html'
-	    },
-	    addDisTicket: { //门票日期选择
-	        url: '/disney/addDisTicket',
-	        controller: 'addDisTicketController',
-	        templateUrl: 'disney.addDisTicket.html'
-	    },
-	    fillOrder: { //填写资料
-	        url: '/disney/fillOrder',
-	        controller: 'fillOrderController',
-	        templateUrl: 'disney.fillOrder.html'
-	    }
+		'home': { //首页
+			url: '/disney',
+			controller: 'homeController',
+			templateUrl: 'disney.home.html'
+		},
+		fillinfo: { //填写
+			url: '/disney/fillinfo',
+			controller: 'fillinfoController',
+			templateUrl: 'disney.fillinfo.html'
+		},
+		ticketInfo: { //机票信息选择
+			url: '/disney/ticketInfo',
+			controller: 'ticketInfoController',
+			templateUrl: 'disney.ticketInfo.html'
+		},
+		goTicketList: { //航班选择-去程
+			url: '/disney/goTicketList',
+			controller: 'goTicketListController',
+			templateUrl: 'disney.goTicketList.html'
+		},
+		backTicketList: { //航班选择-返程
+			url: '/disney/backTicketList',
+			controller: 'backTicketListController',
+			templateUrl: 'disney.backTicketList.html'
+		},
+		goTicketDetail: { //航班详情
+			url: '/disney/goTicketDetail',
+			controller: 'goTicketDetailController',
+			templateUrl: 'disney.ticketDetail.html'
+		},
+		backTicketDetail: { //航班详情
+			url: '/disney/backTicketDetail',
+			controller: 'backTicketDetailController',
+			templateUrl: 'disney.ticketDetail.html'
+		},
+		addDisTicket: { //门票日期选择
+			url: '/disney/addDisTicket',
+			controller: 'addDisTicketController',
+			templateUrl: 'disney.addDisTicket.html'
+		},
+		fillOrder: { //填写资料
+			url: '/disney/fillOrder',
+			controller: 'fillOrderController',
+			templateUrl: 'disney.fillOrder.html'
+		}
 	});
 
 /***/ },
@@ -35123,7 +35130,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-	exports.routerInject = exports.configInject = exports.decoratorInject = exports.constantInject = exports.valueInject = exports.serviceInject = exports.factoryInject = exports.providerInject = exports.directiveInject = exports.controllerInject = undefined;
+	exports.routerInject = exports.configInject = exports.decoratorInject = exports.constantInject = exports.valueInject = exports.serviceInject = exports.factoryInject = exports.providerInject = exports.filterInject = exports.directiveInject = exports.controllerInject = undefined;
 	
 	var _classCallCheck2 = __webpack_require__(9);
 	
@@ -35167,6 +35174,23 @@
 	        }
 	    }]);
 	    return directiveInject;
+	}();
+	
+	var filterInject = exports.filterInject = function () {
+	    function filterInject() {
+	        var filter = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+	        (0, _classCallCheck3.default)(this, filterInject);
+	
+	        this.filter = filter;
+	    }
+	
+	    (0, _createClass3.default)(filterInject, [{
+	        key: 'inject',
+	        value: function inject(module) {
+	            injectBase(this.filter, module, 'filter');
+	        }
+	    }]);
+	    return filterInject;
 	}();
 	
 	var providerInject = exports.providerInject = function () {
@@ -35648,7 +35672,7 @@
 	var angular=window.angular,ngModule;
 	try {ngModule=angular.module(["ng"])}
 	catch(e){ngModule=angular.module("ng",[])}
-	var v1="<div class=\"banner\"> <img src=\"" + __webpack_require__(31) + "\"> </div> <div class=\"addressTab\"> <ul> <li class=\"active\">上海</li> <li>香港</li> <li>加州</li> <li>佛州</li> <li>巴黎</li> </ul> </div> <div class=\"tabIndex\"> <div class=\"DesBox active\"> <h5><b>上海迪士尼</b>/套票产品航线选择</h5> <div class=\"desDiv firDiv\"> <a href=\"javascript:;\"><img src=\"" + __webpack_require__(32) + "\" alt=\"\"></a> <div class=\"detail\"> <div class=\"detailLeft\"> <h3>国内往返头等/公务舱成人机票+门票</h3> <p>本产品为往返头等舱或公务舱成人机票+门票，机票始发地或目的地为上海，1套机票最多可搭配2张门票</p> </div> <div class=\"detailRight\"> <p>国内航线</p> <a href=\"javascript:;\" class=\"buy\">立即预定</a> </div> </div> </div> <div class=\"desDiv\"> <a href=\"javascript:;\"><img src=\"" + __webpack_require__(33) + "\" alt=\"\"></a> <div class=\"detail\"> <div class=\"detailLeft\"> <h3>欧美澳往返头等/公务/经济舱成人机票+门票</h3> <p>本产品为往返头等舱、公务舱或经济舱成人机票+门票，机票始发地或目的地为上海，1套机票最多可搭配2张门票</p> </div> <div class=\"detailRight\"> <p>欧美澳航线</p> <a href=\"javascript:;\" class=\"buy\">立即预定</a> </div> </div> </div> <div class=\"desDiv\"> <a href=\"javascript:;\"><img src=\"" + __webpack_require__(34) + "\" alt=\"\"></a> <div class=\"detail\"> <div class=\"detailLeft\"> <h3>日韩往返头等/公务/经济舱成人机票+门票</h3> <p>产品为往返头等舱、公务舱或经济舱成人机票+门票，机票始发地或目的地为上海，1套机票最多可搭配2张门票</p> </div> <div class=\"detailRight\"> <p>日韩航线</p> <a href=\"javascript:;\" class=\"buy\">立即预定</a> </div> </div> </div> <div class=\"desDiv\"> <a href=\"javascript:;\"><img src=\"" + __webpack_require__(35) + "\" alt=\"\"></a> <div class=\"detail\"> <div class=\"detailLeft\"> <h3>港澳台往返头等/公务/经济舱成人机票+门票</h3> <p>本产品为往返头等舱、公务舱或经济舱成人机票+门票，机票始发地或目的地为上海，1套机票最多可搭配2张门票</p> </div> <div class=\"detailRight\"> <p>港澳台航线</p> <a href=\"javascript:;\" class=\"buy\">立即预定</a> </div> </div> </div> <div class=\"desDiv\"> <a href=\"javascript:;\"><img src=\"" + __webpack_require__(36) + "\" alt=\"\"></a> <div class=\"detail\"> <div class=\"detailLeft\"> <h3>其他往返头等/公务/经济舱成人机票+门票 </h3> <p>本产品为往返头等舱、公务舱或经济舱成人机票+门票，机票始发地或目的地为上海，1套机票最多可搭配2张门票</p> </div> <div class=\"detailRight\"> <p>其他航线</p> <a href=\"javascript:;\" class=\"buy\">立即预定</a> </div> </div> </div> </div> <div class=\"DesBox\"> <h5>香港-敬请期待</h5> </div> <div class=\"DesBox\"> <h5>加州-敬请期待</h5> </div> <div class=\"DesBox\"> <h5>佛州-敬请期待</h5> </div> <div class=\"DesBox\"> <h5>巴黎-敬请期待</h5> </div> </div>";
+	var v1="<div class=\"banner\"> <img src=\"" + __webpack_require__(31) + "\"> </div> <div class=\"addressTab\" id=\"addressTab\"> <ul> <li class=\"active\">上海</li> <li>香港</li> <li>加州</li> <li>佛州</li> <li>巴黎</li> </ul> </div> <div class=\"tabIndex\"> <div class=\"DesBox active\"> <h5><b>上海迪士尼</b>/套票产品航线选择</h5> <div class=\"desDiv firDiv\"> <a href=\"javascript:;\"><img src=\"" + __webpack_require__(32) + "\" alt=\"\"></a> <div class=\"detail\"> <div class=\"detailLeft\"> <h3>国内往返头等/公务舱成人机票+门票</h3> <p>本产品为往返头等舱或公务舱成人机票+门票，机票始发地或目的地为上海，1套机票最多可搭配2张门票</p> </div> <div class=\"detailRight\"> <p>国内航线</p> <a href=\"javascript:;\" class=\"buy\">立即预定</a> </div> </div> </div> <div class=\"desDiv\"> <a href=\"javascript:;\"><img src=\"" + __webpack_require__(33) + "\" alt=\"\"></a> <div class=\"detail\"> <div class=\"detailLeft\"> <h3>欧美澳往返头等/公务/经济舱成人机票+门票</h3> <p>本产品为往返头等舱、公务舱或经济舱成人机票+门票，机票始发地或目的地为上海，1套机票最多可搭配2张门票</p> </div> <div class=\"detailRight\"> <p>欧美澳航线</p> <a href=\"javascript:;\" class=\"buy\">立即预定</a> </div> </div> </div> <div class=\"desDiv\"> <a href=\"javascript:;\"><img src=\"" + __webpack_require__(34) + "\" alt=\"\"></a> <div class=\"detail\"> <div class=\"detailLeft\"> <h3>日韩往返头等/公务/经济舱成人机票+门票</h3> <p>产品为往返头等舱、公务舱或经济舱成人机票+门票，机票始发地或目的地为上海，1套机票最多可搭配2张门票</p> </div> <div class=\"detailRight\"> <p>日韩航线</p> <a href=\"javascript:;\" class=\"buy\">立即预定</a> </div> </div> </div> <div class=\"desDiv\"> <a href=\"javascript:;\"><img src=\"" + __webpack_require__(35) + "\" alt=\"\"></a> <div class=\"detail\"> <div class=\"detailLeft\"> <h3>港澳台往返头等/公务/经济舱成人机票+门票</h3> <p>本产品为往返头等舱、公务舱或经济舱成人机票+门票，机票始发地或目的地为上海，1套机票最多可搭配2张门票</p> </div> <div class=\"detailRight\"> <p>港澳台航线</p> <a href=\"javascript:;\" class=\"buy\">立即预定</a> </div> </div> </div> <div class=\"desDiv\"> <a href=\"javascript:;\"><img src=\"" + __webpack_require__(36) + "\" alt=\"\"></a> <div class=\"detail\"> <div class=\"detailLeft\"> <h3>其他往返头等/公务/经济舱成人机票+门票 </h3> <p>本产品为往返头等舱、公务舱或经济舱成人机票+门票，机票始发地或目的地为上海，1套机票最多可搭配2张门票</p> </div> <div class=\"detailRight\"> <p>其他航线</p> <a href=\"javascript:;\" class=\"buy\">立即预定</a> </div> </div> </div> </div> <div class=\"wish\"> <i class=\"iconfont fly\">&#xe61a;</i> <p>敬请期待...</p> </div> </div>";
 	ngModule.run(["$templateCache",function(c){c.put("disney.home.html",v1)}]);
 	module.exports=v1;
 
@@ -35695,7 +35719,7 @@
 	var angular=window.angular,ngModule;
 	try {ngModule=angular.module(["ng"])}
 	catch(e){ngModule=angular.module("ng",[])}
-	var v1="<div class=\"ticketBook\"> <div class=\"cityName\"> <div class=\"cityStart\"> <p>出发城市</p> <h5>上海虹桥</h5> </div> <div class=\"cityFly\"></div> <div class=\"cityEnd\"> <p>到达城市</p> <h5>西雅图</h5> </div> </div> <div class=\"date\"> <div class=\"dateLeft\">出发日期</div> <h5>2015/10/11</h5> <div class=\"dateRight\">周日 后天</div> </div> <div class=\"cityName\"> <div class=\"cityStart\"> <p>出发城市</p> <h5>佛罗伦萨</h5> </div> <div class=\"cityFly\"></div> <div class=\"cityEnd\"> <p>到达城市</p> <h5>上海虹桥</h5> </div> </div> <div class=\"date\"> <div class=\"dateLeft\">出发日期</div> <h5>2015/10/11</h5> <div class=\"dateRight\">周日 后天</div> </div> <div class=\"numTotall\"> <div class=\"numLeft\">人&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;数</div> <h5>2<span>人</span></h5> <div></div> </div> </div> <div class=\"searchBox\"> <a class=\"btnSearch\">搜索航班</a> </div>";
+	var v1="<div class=\"ticketBook\"> <div class=\"cityName\"> <div class=\"cityStart\"> <p>出发城市</p> <h5>上海虹桥</h5> </div> <div class=\"cityFly\"></div> <div class=\"cityEnd\"> <p>到达城市</p> <h5>西雅图</h5> </div> </div> <div class=\"date\"> <div class=\"dateLeft\">出发日期</div> <h5>2015/10/11</h5> <div class=\"dateRight\">周日 后天</div> </div> <div class=\"cityName\"> <div class=\"cityStart\"> <p>出发城市</p> <h5>佛罗伦萨</h5> </div> <div class=\"cityFly\"></div> <div class=\"cityEnd\"> <p>到达城市</p> <h5>上海虹桥</h5> </div> </div> <div class=\"date\"> <div class=\"dateLeft\">出发日期</div> <h5>2015/10/11</h5> <div class=\"dateRight\">周日 后天</div> </div> <div class=\"numTotall\"> <div class=\"numLeft\">人&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;数</div> <h5>2<span>人</span></h5> <div></div> </div> </div> <div class=\"searchBox\"> <a class=\"btnSearch\" ui-sref=\"goTicketList\">搜索航班</a> </div>";
 	ngModule.run(["$templateCache",function(c){c.put("disney.ticketInfo.html",v1)}]);
 	module.exports=v1;
 
@@ -35706,7 +35730,7 @@
 	var angular=window.angular,ngModule;
 	try {ngModule=angular.module(["ng"])}
 	catch(e){ngModule=angular.module("ng",[])}
-	var v1="<header> <div class=\"headerDate\"> <div class=\"preDate\">前一天</div> <div class=\"Date\">01-29<span>周二</span></div> <div class=\"nextDate\">后一天</div> </div> </header> <div class=\"flightOptions\"> <div class=\"options\"> <div class=\"options-top\"> <div class=\"op-Left\"> <div class=\"options-left\"> <span>10:30</span> <p>上海虹桥T1</p> </div> <div class=\"options-cen\"> <span>经停</span> <p>北京</p> </div> <div class=\"options-right\"> <span>09:10</span> <p>北京首都T3</p> <i>+1天</i> </div> </div> <div class=\"ticket-price\"> <p class=\"fir\">差价</p> <p class=\"sec\"><i>-</i><span>￥</span>388</p> </div> </div> <div class=\"options-bot\"> <p>东航MU5101 | 737（中）</p> <div class=\"picketNum\">余票充足</div> </div> </div> <div class=\"options\"> <div class=\"options-top\"> <div class=\"op-Left\"> <div class=\"options-left\"> <span>10:30</span> <p>上海虹桥T1</p> </div> <div class=\"options-cen\"> <span>经停</span> <p>北京</p> </div> <div class=\"options-right\"> <span>09:10</span> <p>北京首都T3</p> <i>+1天</i> </div> </div> <div class=\"ticket-price\"> <p class=\"fir\">差价</p> <p class=\"sec\"><i>-</i><span>￥</span>388</p> </div> </div> <div class=\"options-bot\"> <p>东航MU5101 | 737（中）</p> <div class=\"picketNum jinz\">还剩6张</div> </div> </div> <div class=\"options\"> <div class=\"options-top\"> <div class=\"op-Left\"> <div class=\"options-left\"> <span>10:30</span> <p>上海虹桥T1</p> </div> <div class=\"options-cen\"> <span>经停</span> <p>北京</p> </div> <div class=\"options-right\"> <span>09:10</span> <p>北京首都T3</p> <i>+1天</i> </div> </div> <div class=\"ticket-price\"> <p class=\"fir\">差价</p> <p class=\"sec\"><i>-</i><span>￥</span>388</p> </div> </div> <div class=\"options-bot\"> <p>东航MU5101 | 737（中）</p> <div class=\"picketNum\">余票充足</div> </div> </div> <div class=\"options\"> <div class=\"options-top\"> <div class=\"op-Left\"> <div class=\"options-left\"> <span>10:30</span> <p>上海虹桥T1</p> </div> <div class=\"options-cen\"> <span>经停</span> <p>北京</p> </div> <div class=\"options-right\"> <span>09:10</span> <p>北京首都T3</p> <i>+1天</i> </div> </div> <div class=\"ticket-price\"> <p class=\"fir\">差价</p> <p class=\"sec\"><i>-</i><span>￥</span>388</p> </div> </div> <div class=\"options-bot\"> <p>东航MU5101 | 737（中）</p> <div class=\"picketNum jinz\">还剩6张</div> </div> </div> <div class=\"options\"> <div class=\"options-top\"> <div class=\"op-Left\"> <div class=\"options-left\"> <span>10:30</span> <p>上海虹桥T1</p> </div> <div class=\"options-cen\"> <span>经停</span> <p>北京</p> </div> <div class=\"options-right\"> <span>09:10</span> <p>北京首都T3</p> <i>+1天</i> </div> </div> <div class=\"ticket-price\"> <p class=\"fir\">差价</p> <p class=\"sec\"><i>-</i><span>￥</span>388</p> </div> </div> <div class=\"options-bot\"> <p>东航MU5101 | 737（中）</p> <div class=\"picketNum\">余票充足</div> </div> </div> <div class=\"options\"> <div class=\"options-top\"> <div class=\"op-Left\"> <div class=\"options-left\"> <span>10:30</span> <p>上海虹桥T1</p> </div> <div class=\"options-cen\"> <span>经停</span> <p>北京</p> </div> <div class=\"options-right\"> <span>09:10</span> <p>北京首都T3</p> <i>+1天</i> </div> </div> <div class=\"ticket-price\"> <p class=\"fir\">差价</p> <p class=\"sec\"><i>-</i><span>￥</span>388</p> </div> </div> <div class=\"options-bot\"> <p>东航MU5101 | 737（中）</p> <div class=\"picketNum jinz\">还剩6张</div> </div> </div> </div> <div class=\"searchFoot\"> <div class=\"searchIc\"> <p class=\"icon-icon1\"></p> 时间排序 </div> <div class=\"searchIc\"> <p class=\"icon-icon36\"></p> 价格排序 </div> <div class=\"searchIc lastIcon\"> <p class=\"icon-icon36\"></p> 筛选\n<a href=\"javascript:;\" class=\"btnJt toUp\"></a>\n<a href=\"javascript:;\" class=\"btnJt toLow\"></a> </div> </div>";
+	var v1="<header> <div class=\"headerDate\"> <div class=\"preDate\">前一天</div> <div class=\"Date\">01-29<span>周二</span></div> <div class=\"nextDate\">后一天</div> </div> </header> <div class=\"flightOptions\"> <div class=\"options\" ng-repeat=\"li in goFlightList track by $index\"> <div class=\"options-top\"> <div class=\"op-Left\"> <div class=\"options-left\"> <span>{{}}</span> <p>上海虹桥T1</p> </div> <div class=\"options-cen\"> <span>经停</span> <p>北京</p> </div> <div class=\"options-right\"> <span>09:10</span> <p>北京首都T3</p> <i>+1天</i> </div> </div> <div class=\"ticket-price\"> <p class=\"fir\">差价</p> <p class=\"sec\"><i>-</i><span>￥</span>388</p> </div> </div> <div class=\"options-bot\"> <p>东航MU5101 | 737（中）</p> <div class=\"picketNum\">余票充足</div> </div> </div> <div class=\"options\"> <div class=\"options-top\"> <div class=\"op-Left\"> <div class=\"options-left\"> <span>10:30</span> <p>上海虹桥T1</p> </div> <div class=\"options-cen\"> <span>经停</span> <p>北京</p> </div> <div class=\"options-right\"> <span>09:10</span> <p>北京首都T3</p> <i>+1天</i> </div> </div> <div class=\"ticket-price\"> <p class=\"fir\">差价</p> <p class=\"sec\"><i>-</i><span>￥</span>388</p> </div> </div> <div class=\"options-bot\"> <p>东航MU5101 | 737（中）</p> <div class=\"picketNum jinz\">还剩6张</div> </div> </div> <div class=\"options\"> <div class=\"options-top\"> <div class=\"op-Left\"> <div class=\"options-left\"> <span>10:30</span> <p>上海虹桥T1</p> </div> <div class=\"options-cen\"> <span>经停</span> <p>北京</p> </div> <div class=\"options-right\"> <span>09:10</span> <p>北京首都T3</p> <i>+1天</i> </div> </div> <div class=\"ticket-price\"> <p class=\"fir\">差价</p> <p class=\"sec\"><i>-</i><span>￥</span>388</p> </div> </div> <div class=\"options-bot\"> <p>东航MU5101 | 737（中）</p> <div class=\"picketNum\">余票充足</div> </div> </div> <div class=\"options\"> <div class=\"options-top\"> <div class=\"op-Left\"> <div class=\"options-left\"> <span>10:30</span> <p>上海虹桥T1</p> </div> <div class=\"options-cen\"> <span>经停</span> <p>北京</p> </div> <div class=\"options-right\"> <span>09:10</span> <p>北京首都T3</p> <i>+1天</i> </div> </div> <div class=\"ticket-price\"> <p class=\"fir\">差价</p> <p class=\"sec\"><i>-</i><span>￥</span>388</p> </div> </div> <div class=\"options-bot\"> <p>东航MU5101 | 737（中）</p> <div class=\"picketNum jinz\">还剩6张</div> </div> </div> <div class=\"options\"> <div class=\"options-top\"> <div class=\"op-Left\"> <div class=\"options-left\"> <span>10:30</span> <p>上海虹桥T1</p> </div> <div class=\"options-cen\"> <span>经停</span> <p>北京</p> </div> <div class=\"options-right\"> <span>09:10</span> <p>北京首都T3</p> <i>+1天</i> </div> </div> <div class=\"ticket-price\"> <p class=\"fir\">差价</p> <p class=\"sec\"><i>-</i><span>￥</span>388</p> </div> </div> <div class=\"options-bot\"> <p>东航MU5101 | 737（中）</p> <div class=\"picketNum\">余票充足</div> </div> </div> <div class=\"options\"> <div class=\"options-top\"> <div class=\"op-Left\"> <div class=\"options-left\"> <span>10:30</span> <p>上海虹桥T1</p> </div> <div class=\"options-cen\"> <span>经停</span> <p>北京</p> </div> <div class=\"options-right\"> <span>09:10</span> <p>北京首都T3</p> <i>+1天</i> </div> </div> <div class=\"ticket-price\"> <p class=\"fir\">差价</p> <p class=\"sec\"><i>-</i><span>￥</span>388</p> </div> </div> <div class=\"options-bot\"> <p>东航MU5101 | 737（中）</p> <div class=\"picketNum jinz\">还剩6张</div> </div> </div> </div> <div class=\"searchFoot\"> <div class=\"searchIc\"> <p class=\"icon-icon1\"></p> 时间排序 </div> <div class=\"searchIc\"> <p class=\"icon-icon36\"></p> 价格排序 </div> <div class=\"searchIc lastIcon\"> <p class=\"icon-icon36\"></p> 筛选\n<a href=\"javascript:;\" class=\"btnJt toUp\"></a>\n<a href=\"javascript:;\" class=\"btnJt toLow\"></a> </div> </div>";
 	ngModule.run(["$templateCache",function(c){c.put("disney.goTicketList.html",v1)}]);
 	module.exports=v1;
 
@@ -35717,7 +35741,7 @@
 	var angular=window.angular,ngModule;
 	try {ngModule=angular.module(["ng"])}
 	catch(e){ngModule=angular.module("ng",[])}
-	var v1="<header> <div class=\"returnMess\"> <div class=\"messDetail\"> <div class=\"messLeft\"><span>去</span></div> <div class=\"messRight\">2015-10-10&nbsp;&nbsp;07:10-09:10&nbsp;&nbsp;MU5101&nbsp;&nbsp;￥388</div> </div> </div> <div class=\"headerDate flightReturn\"> <div class=\"preDate\">前一天</div> <div class=\"Date\">01-29<span>周二</span><b><i>￥</i>1388</b></div> <div class=\"nextDate\">后一天</div> </div> </header> <div class=\"flightOptions returnOptions\"> <div class=\"options\"> <div class=\"options-top\"> <div class=\"op-Left\"> <div class=\"options-left\"> <span>10:30</span> <p>上海虹桥T1</p> </div> <div class=\"options-cen\"> <span>经停</span> <p>北京</p> </div> <div class=\"options-right\"> <span>09:10</span> <p>北京首都T3</p> <i>+1天</i> </div> </div> <div class=\"ticket-price\"> <p class=\"fir\">差价</p> <p class=\"sec\"><i>-</i><span>￥</span>388</p> </div> </div> <div class=\"options-bot\"> <p>东航MU5101 | 737（中）</p> <div class=\"picketNum\">余票充足</div> </div> </div> <div class=\"options\"> <div class=\"options-top\"> <div class=\"op-Left\"> <div class=\"options-left\"> <span>10:30</span> <p>上海虹桥T1</p> </div> <div class=\"options-cen\"> <span>经停</span> <p>北京</p> </div> <div class=\"options-right\"> <span>09:10</span> <p>北京首都T3</p> <i>+1天</i> </div> </div> <div class=\"ticket-price\"> <p class=\"fir\">差价</p> <p class=\"sec\"><i>-</i><span>￥</span>388</p> </div> </div> <div class=\"options-bot\"> <p>东航MU5101 | 737（中）</p> <div class=\"picketNum jinz\">还剩6张</div> </div> </div> <div class=\"options\"> <div class=\"options-top\"> <div class=\"op-Left\"> <div class=\"options-left\"> <span>10:30</span> <p>上海虹桥T1</p> </div> <div class=\"options-cen\"> <span>经停</span> <p>北京</p> </div> <div class=\"options-right\"> <span>09:10</span> <p>北京首都T3</p> <i>+1天</i> </div> </div> <div class=\"ticket-price\"> <p class=\"fir\">差价</p> <p class=\"sec\"><i>-</i><span>￥</span>388</p> </div> </div> <div class=\"options-bot\"> <p>东航MU5101 | 737（中）</p> <div class=\"picketNum\">余票充足</div> </div> </div> <div class=\"options\"> <div class=\"options-top\"> <div class=\"op-Left\"> <div class=\"options-left\"> <span>10:30</span> <p>上海虹桥T1</p> </div> <div class=\"options-cen\"> <span>经停</span> <p>北京</p> </div> <div class=\"options-right\"> <span>09:10</span> <p>北京首都T3</p> <i>+1天</i> </div> </div> <div class=\"ticket-price\"> <p class=\"fir\">差价</p> <p class=\"sec\"><i>-</i><span>￥</span>388</p> </div> </div> <div class=\"options-bot\"> <p>东航MU5101 | 737（中）</p> <div class=\"picketNum jinz\">还剩6张</div> </div> </div> <div class=\"options\"> <div class=\"options-top\"> <div class=\"op-Left\"> <div class=\"options-left\"> <span>10:30</span> <p>上海虹桥T1</p> </div> <div class=\"options-cen\"> <span>经停</span> <p>北京</p> </div> <div class=\"options-right\"> <span>09:10</span> <p>北京首都T3</p> <i>+1天</i> </div> </div> <div class=\"ticket-price\"> <p class=\"fir\">差价</p> <p class=\"sec\"><i>-</i><span>￥</span>388</p> </div> </div> <div class=\"options-bot\"> <p>东航MU5101 | 737（中）</p> <div class=\"picketNum\">余票充足</div> </div> </div> <div class=\"options\"> <div class=\"options-top\"> <div class=\"op-Left\"> <div class=\"options-left\"> <span>10:30</span> <p>上海虹桥T1</p> </div> <div class=\"options-cen\"> <span>经停</span> <p>北京</p> </div> <div class=\"options-right\"> <span>09:10</span> <p>北京首都T3</p> <i>+1天</i> </div> </div> <div class=\"ticket-price\"> <p class=\"fir\">差价</p> <p class=\"sec\"><i>-</i><span>￥</span>388</p> </div> </div> <div class=\"options-bot\"> <p>东航MU5101 | 737（中）</p> <div class=\"picketNum jinz\">还剩6张</div> </div> </div> </div> <div class=\"searchFoot\"> <div class=\"searchIc\"> <p class=\"icon-icon1\"></p> 时间排序 </div> <div class=\"searchIc\"> <p class=\"icon-icon36\"></p> 价格排序 </div> <div class=\"searchIc lastIcon\"> <p class=\"icon-icon36\"></p> 筛选\n<a href=\"javascript:;\" class=\"btnJt toUp\"></a>\n<a href=\"javascript:;\" class=\"btnJt toLow\"></a> </div> </div>";
+	var v1=" <header> <div class=\"returnMess\"> <div class=\"messDetail\"> <div class=\"messLeft\"><span>去</span></div> <div class=\"messRight\">2015-10-10&nbsp;&nbsp;07:10-09:10&nbsp;&nbsp;MU5101&nbsp;&nbsp;￥388</div> </div> </div> <div class=\"headerDate flightReturn\"> <div class=\"preDate\" ng-click=\"prevDay()\">前一天</div> <div class=\"Date\">{{airDate.AirBackDate.slice(5)}}<span>{{airDate.AirBackDate | util_f_week}}</span></div> <div class=\"nextDate\" ng-click=\"nextDay()\">后一天</div> </div> </header>  <div class=\"flightOptions returnOptions\"> <div class=\"options\" ng-repeat=\"item in backFlightList track by $index\"> <div class=\"options-top\"> <div class=\"op-Left\"> <div class=\"options-left\"> <span>{{item.FightStartDate |util_f_date|date:'HH:mm'}}</span> <p>{{item.StartAirportName}}{{item.StartTerminalName}}</p> </div> <div class=\"options-cen\"> <span>{{(item.IsStopOver)? '中转': '直达'}}</span> <p>{{item.IsStopOver ? item.StopAreaName : ''}}</p> </div> <div class=\"options-right\"> <span>{{item.FightEndDate | util_f_date | date:'HH:mm'}}</span> <p>{{item.EndAirportName}}{{item.EndTerminalName}}</p> <i>{{overDay(item.FightStartDate,item.FightEndDate)}}</i> </div> </div> <div class=\"ticket-price\"> <p class=\"sec\"><span>￥</span>388</p> <p class=\"fir\">经济舱位</p> </div> </div> <div class=\"options-bot\"> <p>{{item.AirlineName}}{{item.FightCode}} | {{item.AirType}}</p> <div class=\"picketNum\">余票充足</div> </div> </div> </div>  <div class=\"searchFoot\"> <div class=\"searchIc\"> <p class=\"icon-icon1\"></p> 时间排序 </div> <div class=\"searchIc\"> <p class=\"icon-icon36\"></p> 价格排序 </div> <div class=\"searchIc lastIcon\"> <p class=\"icon-icon36\"></p> 筛选\n<a href=\"javascript:;\" class=\"btnJt toUp\"></a>\n<a href=\"javascript:;\" class=\"btnJt toLow\"></a> </div> </div>";
 	ngModule.run(["$templateCache",function(c){c.put("disney.backTicketList.html",v1)}]);
 	module.exports=v1;
 
@@ -35853,10 +35877,27 @@
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
-	  value: true
+		value: true
 	});
-	ticketInfo.$inject = ['$scope'];
-	function ticketInfo($scope) {}
+	ticketInfo.$inject = ['$scope', 'util_s_local'];
+	function ticketInfo($scope, util_s_local) {
+		var nowDate = new Date(),
+		    backDate = new Date();
+		backDate.setDate(backDate.getDate() + 1);
+		var dataInfo = $scope.dataInfo = util_s_local.getJson('infoData') || { AirStartCityName: '上海',
+			AirArriveCityName: '香港',
+			AirStartDate: +nowDate,
+			AirBackDate: +backDate,
+			AdultNum: 1,
+			ChildrenNum: 0
+		};
+		initFn();
+		function initFn() {
+			$scope.$on('$destroy', function () {
+				util_s_local.setJson('infoData', dataInfo);
+			});
+		}
+	}
 	
 	exports.default = ticketInfo;
 
@@ -35867,11 +35908,37 @@
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
-	  value: true
+		value: true
 	});
 	
-	goTicketList.$inject = ['$scope'];
-	function goTicketList($scope) {}
+	goTicketList.$inject = ['$scope', 'util_s_local', 'util_s_http', 'util_s_fn'];
+	function goTicketList($scope, util_s_local, util_s_http, util_s_fn) {
+		var infoData = util_s_local.getJson('infoData') || {};
+		initFn();
+		loadData();
+	
+		function loadData() {
+			var params = {
+				AirStartCityName: infoData.AirStartCityName,
+				AirArriveCityName: infoData.AirArriveCityName,
+				AirStartDate: util_s_fn.dateToServer(infoData.AirStartDate),
+				AirBackDate: util_s_fn.dateToServer(infoData.AirBackDate),
+				AdultNum: infoData.AdultNum,
+				ChildrenNum: infoData.ChildrenNum,
+				OrderByField: '',
+				OrderByType: ''
+			};
+	
+			util_s_http.post({
+				url: 'AppAirTicketApi/GetAirTicketInfo',
+				data: params,
+				success: function success(data) {
+					$scope.goFlightList = data.Data.goFlightList || [];
+				}
+			});
+		}
+		function initFn() {}
+	}
 	
 	exports.default = goTicketList;
 
@@ -35882,10 +35949,73 @@
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
-	  value: true
+	    value: true
 	});
-	backTicketList.$inject = ['$scope'];
-	function backTicketList($scope) {}
+	backTicketList.$inject = ['$scope', 'util_s_local', 'util_s_http', 'util_s_fn'];
+	function backTicketList($scope, util_s_local, util_s_http, util_s_fn) {
+	    var infoData = util_s_local.getJson('infoData') || {};
+	    initFn();
+	    loadData();
+	    function loadData() {
+	        /*let params={
+	            AirStartCityName:infoData.AirStartCityName,
+	            AirArriveCityName:infoData.AirArriveCityName,
+	            AirStartDate:util_s_fn.dateToServer(infoData.AirStartDate),
+	            AirBackDate:util_s_fn.dateToServer(infoData.AirBackDate),
+	            AdultNum:infoData.AdultNum,
+	            ChildrenNum:infoData.ChildrenNum,
+	            OrderByField:'',
+	            OrderByType:''
+	        };*/
+	        var params = {
+	            AirStartCityName: "上海",
+	            AirArriveCityName: "香港",
+	            AirStartDate: new Date('2016-06-16') / 1000,
+	            AirBackDate: new Date('2016-06-18') / 1000,
+	            AdultNum: 2,
+	            ChildrenNum: 1,
+	            OrderByField: '',
+	            OrderByType: ''
+	        };
+	
+	        util_s_http.post({
+	            url: 'AppAirTicketApi/GetAirTicketInfo',
+	            data: params,
+	            success: function success(data) {
+	                $scope.backFlightList = data.Data.BackFlightList || [];
+	
+	                $scope.airDate = {
+	                    AirStartDate: '2016-06-16',
+	                    AirBackDate: '2016-06-18'
+	                };
+	                $scope.i = 0;
+	
+	                $scope.overDay = function (start, stop) {
+	                    var day = new Date(stop * 1000).getDay() - new Date(start * 1000).getDay();
+	                    if (day > 0) {
+	                        return '+' + day + '天';
+	                    }
+	                };
+	
+	                $scope.nextDay = function () {
+	                    $scope.i++;
+	                    var currentDay = new Date($scope.airDate.AirBackDate).getTime() + $scope.i * 24 * 3600 * 1000;
+	                    console.log(util_s_fn.format(new Date(currentDay)));
+	                };
+	
+	                $scope.prevDay = function () {
+	                    //判断是否超过并且重新拉取数据
+	                    $scope.i--;
+	                    var currentDay = new Date($scope.airDate.AirBackDate).getTime() + $scope.i * 24 * 3600 * 1000;
+	                    console.log(util_s_fn.format(new Date(currentDay)));
+	                };
+	
+	                //console.log($scope.backFlightList);
+	            }
+	        });
+	    }
+	    function initFn() {}
+	}
 	
 	exports.default = backTicketList;
 
@@ -35896,7 +36026,7 @@
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
-	  value: true
+		value: true
 	});
 	
 	goTicketDetail.$inject = ['$scope'];
@@ -35999,10 +36129,15 @@
 	
 	var _services2 = _interopRequireDefault(_services);
 	
+	var _filters = __webpack_require__(64);
+	
+	var _filters2 = _interopRequireDefault(_filters);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var util = (0, _angular.module)('util', []);
 	_services2.default.inject(util);
+	_filters2.default.inject(util);
 	exports.default = util;
 
 /***/ },
@@ -36021,25 +36156,40 @@
 	
 	var _util_s_http2 = _interopRequireDefault(_util_s_http);
 	
-	var _util_s_app = __webpack_require__(59);
+	var _util_s_app = __webpack_require__(58);
 	
 	var _util_s_app2 = _interopRequireDefault(_util_s_app);
 	
-	var _util_s_session = __webpack_require__(62);
+	var _util_s_session = __webpack_require__(59);
 	
 	var _util_s_session2 = _interopRequireDefault(_util_s_session);
+	
+	var _util_s_local = __webpack_require__(61);
+	
+	var _util_s_local2 = _interopRequireDefault(_util_s_local);
+	
+	var _util_s_verify = __webpack_require__(62);
+	
+	var _util_s_verify2 = _interopRequireDefault(_util_s_verify);
+	
+	var _util_s_fn = __webpack_require__(63);
+	
+	var _util_s_fn2 = _interopRequireDefault(_util_s_fn);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	exports.default = new _utilityInject.serviceInject({
 		util_s_http: _util_s_http2.default,
 		util_s_app: _util_s_app2.default,
-		util_s_session: _util_s_session2.default
+		util_s_session: _util_s_session2.default,
+		util_s_local: _util_s_local2.default,
+		util_s_verify: _util_s_verify2.default,
+		util_s_fn: _util_s_fn2.default
 	});
 
 /***/ },
 /* 57 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
 	'use strict';
 	
@@ -36052,17 +36202,17 @@
 			var option = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
 	
 			option.method = 'POST';
-			return __webpack_require__(58)(option);
+			return requireHttp(option);
 		};
 	
 		this.get = function () {
 			var option = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
 	
 			option.method = 'GET';
-			return __webpack_require__(58)(option);
+			return requireHttp(option);
 		};
 	
-		function require() {
+		function requireHttp() {
 			var option = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
 	
 			option.url = getApiUrl(option.url);
@@ -36071,23 +36221,28 @@
 			} else {
 				option.headers = option.headers || {};
 				option.headers['Content-Type'] = 'application/x-www-form-urlencoded';
+				//option.headers['Content-Type']='application/json';
 				option.data = $httpParamSerializerJQLike(option.data);
 			}
 			return handleResponse($http(option), option);
 		}
 	
 		function handleResponse(httpPromise, option) {
-			var _this = this,
-			    _arguments = arguments;
+			var _this = this;
 	
 			var sucessFn = option.success,
 			    errorFn = option.error;
-			return httpPromise.success(function (data) {
-				var code = data.Code;
+			return httpPromise.success(function () {
+				for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+					args[_key] = arguments[_key];
+				}
+	
+				var data = args[0],
+				    code = data.Code;
 				if (data && data.Code) {
 					switch (code) {
 						case 200:
-							sucessFn.apply(_this, _arguments);
+							if (typeof sucessFn == 'function') sucessFn.apply(_this, args);
 							break;
 						case 4:
 							break;
@@ -36096,49 +36251,23 @@
 					}
 				}
 			}).error(function () {
-				return errorFn.apply(_this, _arguments);
+				for (var _len2 = arguments.length, args = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+					args[_key2] = arguments[_key2];
+				}
+	
+				if (typeof errorFn == 'function') errorFn.apply(_this, args);
 			});
 		}
 	}
 	
 	function getApiUrl(url) {
-		return window.reqConfig + 'url';
+		return window.reqConfig.baseUrl + url;
 	}
 	
 	exports.default = util_s_http;
 
 /***/ },
 /* 58 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var map = {
-		"./index": 56,
-		"./index.js": 56,
-		"./util_s_app": 59,
-		"./util_s_app.js": 59,
-		"./util_s_http": 57,
-		"./util_s_http.js": 57,
-		"./util_s_local": 60,
-		"./util_s_local.js": 60,
-		"./util_s_session": 62,
-		"./util_s_session.js": 62
-	};
-	function webpackContext(req) {
-		return __webpack_require__(webpackContextResolve(req));
-	};
-	function webpackContextResolve(req) {
-		return map[req] || (function() { throw new Error("Cannot find module '" + req + "'.") }());
-	};
-	webpackContext.keys = function webpackContextKeys() {
-		return Object.keys(map);
-	};
-	webpackContext.resolve = webpackContextResolve;
-	module.exports = webpackContext;
-	webpackContext.id = 58;
-
-
-/***/ },
-/* 59 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -36178,9 +36307,7 @@
 						external.notify("clickOnLogin?" + url + "&" + title + "&mobile_login");
 						break;
 				}
-			} catch (e) {
-				console.log(e);
-			}
+			} catch (e) {}
 		};
 	
 		this.hasLogin = function () {
@@ -36219,24 +36346,24 @@
 		};
 	
 		this.bindBack = function (isFirst) {
-	
-			var customer = this.ShowCus();
-	
-			switch (customer) {
-				case "Android":
-					if (!isFirst) {
-						gotoback.clickOnback('true', 'historyBack()');
-					} else gotoback.clickOnback('false', '');
-					break;
-				case "IOS":
-					if (!isFirst) clickOnback("true", "historyBack()");else {
-						clickOnback("false", "");
-					}
-					break;
-				case "WP":
-					if (!isFirst) external.notify('clickOnback?true&historyBack');else external.notify('clickOnback?true&');
-					break;
-			}
+			try {
+				var customer = this.ShowCus();
+				switch (customer) {
+					case "Android":
+						if (!isFirst) {
+							gotoback.clickOnback('true', 'historyBack()');
+						} else gotoback.clickOnback('false', '');
+						break;
+					case "IOS":
+						if (!isFirst) clickOnback("true", "historyBack()");else {
+							clickOnback("false", "");
+						}
+						break;
+					case "WP":
+						if (!isFirst) external.notify('clickOnback?true&historyBack');else external.notify('clickOnback?true&');
+						break;
+				}
+			} catch (e) {}
 		};
 	
 		this.bindTitle = function (title) {
@@ -36258,7 +36385,7 @@
 	}
 
 /***/ },
-/* 60 */
+/* 59 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36267,21 +36394,21 @@
 		value: true
 	});
 	
-	var _utility = __webpack_require__(61);
+	var _utility = __webpack_require__(60);
 	
 	var _utility2 = _interopRequireDefault(_utility);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	util_s_local.$inject = [];
-	function util_s_local() {
-		_utility2.default.call(this, window.localStorage);
+	util_s_session.$inject = [];
+	function util_s_session() {
+		_utility2.default.call(this, window.sessionStorage);
 	}
 	
-	exports.default = util_s_local;
+	exports.default = util_s_session;
 
 /***/ },
-/* 61 */
+/* 60 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36354,7 +36481,7 @@
 	}
 
 /***/ },
-/* 62 */
+/* 61 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36363,29 +36490,360 @@
 		value: true
 	});
 	
-	var _utility = __webpack_require__(61);
+	var _utility = __webpack_require__(60);
 	
 	var _utility2 = _interopRequireDefault(_utility);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	util_s_session.$inject = [];
-	function util_s_session() {
-		_utility2.default.call(this, window.sessionStorage);
+	util_s_local.$inject = [];
+	function util_s_local() {
+		_utility2.default.call(this, window.localStorage);
 	}
 	
-	exports.default = util_s_session;
+	exports.default = util_s_local;
+
+/***/ },
+/* 62 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	util_s_verify.$inject = [];
+	function util_s_verify() {
+		/*验证中文姓名正则表达式*/
+		this.namePattern = /^[a-zA-Z\.\u4E00-\u9FA5]+$/;
+		/*验证中文姓名*/
+		this.verifyName = function (name) {
+			return this.namePattern.test(name);
+		};
+		/*验证英文姓名正则表达式*/
+		this.nameEnPattern = /^[a-zA-Z\/ ]+$/;
+		/*验证英文姓名*/
+		this.verifyEnName = function (name) {
+			return this.nameEnPattern.test(name);
+		};
+	
+		/*验证英文姓名*/
+		this.verifyEnNum = function (text) {
+			return (/^[a-zA-Z0-9]+$/.test(text)
+			);
+		};
+	
+		/*验证身份证*/
+		this.verifyIdentity = function (num) {
+			num = num.toUpperCase();
+			//身份证号码为15位或者18位，15位时全为数字，18位前17位为数字，最后一位是校验位，可能为数字或字符X。
+			if (!/(^\d{15}$)|(^\d{17}([0-9]|X)$)/.test(num))
+				//alert('输入的身份证号长度不对，或者号码不符合规定！\n15位号码应全为数字，18位号码末位可以为数字或X。');
+				return false;
+			//校验位按照ISO 7064:1983.MOD 11-2的规定生成，X可以认为是数字10。
+			//下面分别分析出生日期和校验位
+			var len, re;
+			len = num.length;
+			if (len == 15) {
+				re = new RegExp(/^(\d{6})(\d{2})(\d{2})(\d{2})(\d{3})$/);
+				var arrSplit = num.match(re);
+				//检查生日日期是否正确
+				var dtmBirth = new Date('19' + arrSplit[2] + '/' + arrSplit[3] + '/' + arrSplit[4]);
+				var bGoodDay;
+				bGoodDay = dtmBirth.getYear() == Number(arrSplit[2]) && dtmBirth.getMonth() + 1 == Number(arrSplit[3]) && dtmBirth.getDate() == Number(arrSplit[4]);
+				if (!bGoodDay)
+					//alert('输入的身份证号里出生日期不对！');
+					return false;else {
+					//将15位身份证转成18位
+					//校验位按照ISO 7064:1983.MOD 11-2的规定生成，X可以认为是数字10。
+					var arrInt = new Array(7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2);
+					var arrCh = new Array('1', '0', 'X', '9', '8', '7', '6', '5', '4', '3', '2');
+					var nTemp = 0,
+					    i;
+					num = num.substr(0, 6) + '19' + num.substr(6, num.length - 6);
+					for (i = 0; i < 17; i++) {
+						nTemp += num.substr(i, 1) * arrInt[i];
+					}
+					num += arrCh[nTemp % 11];
+					return true;
+				}
+			}
+			if (len == 18) {
+				re = new RegExp(/^(\d{6})(\d{4})(\d{2})(\d{2})(\d{3})([0-9]|X)$/);
+				var arrSplit = num.match(re);
+	
+				//检查生日日期是否正确
+				var dtmBirth = new Date(arrSplit[2] + "/" + arrSplit[3] + "/" + arrSplit[4]);
+				var bGoodDay;
+				bGoodDay = dtmBirth.getFullYear() == Number(arrSplit[2]) && dtmBirth.getMonth() + 1 == Number(arrSplit[3]) && dtmBirth.getDate() == Number(arrSplit[4]);
+				if (!bGoodDay) {
+					//alert(dtmBirth.getYear());
+					//alert(arrSplit[2]);
+					//alert('输入的身份证号里出生日期不对！');
+					return false;
+				} else {
+					//检验18位身份证的校验码是否正确。
+					//校验位按照ISO 7064:1983.MOD 11-2的规定生成，X可以认为是数字10。
+					var valnum;
+					var arrInt = new Array(7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2);
+					var arrCh = new Array('1', '0', 'X', '9', '8', '7', '6', '5', '4', '3', '2');
+					var nTemp = 0,
+					    i;
+					for (i = 0; i < 17; i++) {
+						nTemp += num.substr(i, 1) * arrInt[i];
+					}
+					valnum = arrCh[nTemp % 11];
+					if (valnum != num.substr(17, 1)) {
+						//alert('18位身份证的校验码不正确！应该为：' + valnum);
+						return false;
+					}
+					return true;
+				}
+			}
+			return false;
+		};
+		/*验证邮编*/
+		this.verifyPostCode = function (postCode) {
+			var reg = /^[1-9][0-9]{5}$/;
+			return reg.test(postCode);
+		};
+		/*验证电话号码*/
+		this.verifyPhone = function (phone) {
+			//var reg=/^1[3|4|5|7|8][0-9]\d{8}$/;
+			var reg = /(^[1][0-9][0-9]{9}$)|(^((0\d{2,3})-)?(\d{7,8})(-(\d{3,}))?$)/;
+			return reg.test(phone);
+		};
+		/*常旅客卡号*/
+		this.verifyPassengerCard = function (num) {
+			var reg = /\d{5,20}$/;
+			return reg.test(num);
+		};
+		//验证文本输入框只能输入中文英文数字
+		this.isChinaOrNumbOrLett = function (s) {
+			var regu = '^[0-9a-zA-Z一-龥]+$';
+			var reg = new RegExp(regu);
+			return reg.test(s);
+		};
+	}
+	
+	exports.default = util_s_verify;
 
 /***/ },
 /* 63 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	util_s_fn.$inject = [];
+	function util_s_fn() {
+		/*日期转换为number
+	 @date string,number,Date 转换的日期
+	 @divisor number 日期单位换算，默认1000微秒（秒）
+	 */
+		this.dateFormat = function (date) {
+			if (date == undefined) return;else if (typeof date == 'number') return new Date(date);else if (typeof date == 'string') {
+				var strs = date.split(/[^0-9]/);
+				return new Date(strs[0] || 0, (strs[1] || 0) - 1, strs[2] || 0, strs[3], strs[4] || 0, strs[5] || 0);
+			} else if (Date.prototype.isPrototypeOf(date)) {
+				return date;
+			}
+		};
+	
+		this.dateToServer = function (date) {
+			return Math.floor(this.dateFormat(date) / 1000);
+		};
+	
+		this.dateFormatNumber = function (date) {
+			var divisor = arguments.length <= 1 || arguments[1] === undefined ? 1 : arguments[1];
+	
+			return this.dateFormat(date) / divisor;
+		};
+	
+		this.initTime = function (date) {
+			if (!date) return date;
+			date = this.dateFormat(date);
+			var year = date.getFullYear(),
+			    month = date.getMonth(),
+			    day = date.getDate();
+			return new Date(year, month, day);
+		};
+	
+		this.getDate = function (date) {
+			return this.initTime(date);
+		};
+	
+		this.compareDay = function (startDate, endDate) {
+			var days = endDate.getTime() - startDate.getTime();
+			var day = parseInt(days / (1000 * 60 * 60 * 24));
+			return day;
+		};
+	
+		this.getStrMonth = function (str, splitTxt) {
+			if (!str) return;
+			splitTxt = splitTxt || '-';
+			var strs = str.split(/[^0-9]/);
+			return strs[0] + splitTxt + strs[1];
+		};
+	
+		this.getStrDate = function (str, splitTxt) {
+			if (!str) return;
+			splitTxt = splitTxt || '-';
+			var strs = str.split(/[^0-9]/);
+			return strs[0] + splitTxt + strs[1] + splitTxt + strs[2];
+		};
+	
+		this.isChild = function (birthday) {
+			var year = birthday.getFullYear(),
+			    month = birthday.getMonth(),
+			    day = birthday.getDate(),
+			    nowDate = new Date(),
+			    nowYear = nowDate.getFullYear(),
+			    nowMonth = nowDate.getMonth(),
+			    nowDay = nowDate.getDate(),
+			    initDate = new Date(nowYear, nowMonth, nowDay);
+			return new Date(year + 12, month, day) - initDate >= 0 && new Date(year + 2, month, day) - initDate <= 0;
+		};
+	
+		this.isAdult = function (birthday) {
+			var year = birthday.getFullYear(),
+			    month = birthday.getMonth(),
+			    day = birthday.getDate(),
+			    nowDate = new Date(),
+			    nowYear = nowDate.getFullYear(),
+			    nowMonth = nowDate.getMonth(),
+			    nowDay = nowDate.getDate(),
+			    initDate = new Date(nowYear, nowMonth, nowDay);
+			return new Date(year + 12, month, day) - initDate < 0;
+		};
+	
+		this.compareYear = function (startDate, endDate) {
+			var times = endDate.getTime() - startDate.getTime();
+			var year = parseInt(times / (1000 * 60 * 60 * 24 * 365));
+			return year;
+		};
+	
+		this.filterSpace = function (str) {
+			if (str == undefined) return '';
+			return str.replace(/^ +| +$/g, '');
+		};
+	
+		this.isTicket = function (type) {
+			return type == window.optionService.ticket;
+		};
+	
+		this.isRedPackage = function (type) {
+			return type == window.optionService.redPackage;
+		};
+	
+		this.isInsurance = function (type) {
+			return type == window.optionService.insurance;
+		};
+	
+		this.format = function (date) {
+			var o = {
+				"Y": date.getFullYear(),
+				"M": date.getMonth() + 1,
+				"D": date.getDate()
+			};
+			return o.Y + '-' + o.M + '-' + o.D;
+		};
+	}
+	
+	exports.default = util_s_fn;
+
+/***/ },
+/* 64 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(64);
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _utilityInject = __webpack_require__(8);
+	
+	var _util_f_date = __webpack_require__(65);
+	
+	var _util_f_date2 = _interopRequireDefault(_util_f_date);
+	
+	var _util_f_week = __webpack_require__(66);
+	
+	var _util_f_week2 = _interopRequireDefault(_util_f_week);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = new _utilityInject.filterInject({
+	    util_f_date: _util_f_date2.default,
+	    util_f_week: _util_f_week2.default
+	});
+
+/***/ },
+/* 65 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	util_f_date.$inject = ['util_s_fn'];
+	function util_f_date(util_s_fn) {
+	    return function (dateString) {
+	        var divser = arguments.length <= 1 || arguments[1] === undefined ? 1000 : arguments[1];
+	
+	        if (!dateString) return;
+	        return new Date(dateString * divser);
+	    };
+	}
+	exports.default = util_f_date;
+
+/***/ },
+/* 66 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	function util_f_week() {
+	    return function (dateString) {
+	        if (!dateString) return;
+	        switch (new Date(dateString).getDay()) {
+	            case 0:
+	                return '周日';
+	            case 1:
+	                return '周一';
+	            case 2:
+	                return '周二';
+	            case 3:
+	                return '周三';
+	            case 4:
+	                return '周四';
+	            case 5:
+	                return '周五';
+	            case 6:
+	                return '周六';
+	        }
+	    };
+	}
+	exports.default = util_f_week;
+
+/***/ },
+/* 67 */
+/***/ function(module, exports, __webpack_require__) {
+
+	__webpack_require__(68);
 	module.exports = 'ngAnimate';
 
 
 /***/ },
-/* 64 */
+/* 68 */
 /***/ function(module, exports) {
 
 	/**
@@ -40539,7 +40997,7 @@
 
 
 /***/ },
-/* 65 */
+/* 69 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;;(function () {

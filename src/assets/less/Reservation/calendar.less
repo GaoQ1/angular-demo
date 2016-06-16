@@ -1,0 +1,104 @@
+.calendar{
+  background: @c_fff;
+  .calendarTop{
+    border-bottom: 1px solid #C8C8C8;
+    margin-bottom: 3%;
+    background: #F0EFF5;
+    ul{
+      .flex_box_container();
+      li{
+        .box_flex(1);
+        color: #63717F;
+        text-align: center;
+        height: 2.5rem;
+        line-height: 2.5rem;
+        &:first-child,&:last-child{
+          color: #FF7F00;
+        }
+      }
+    }
+  }
+  .calendarMain{
+    border-top: 1px solid #C8C8C8;
+    h5{
+      text-align: center;
+      color: #666;
+      font-size: 1.6rem;
+      font-weight: bold;
+      height: 4rem;
+      line-height: 4rem;
+      background: #F0EFF5;
+    }
+    .mainCal{
+      background: @c_fff;
+      border-top: 1px solid #C8C8C8;
+      padding: 2% 1rem;
+      .calBox{
+        ul{
+          .flex_box_container();
+          justify-content: space-between;
+          li{
+            text-align: center;
+            color: #AAAAAA;
+            width: 4rem;
+            height: 4rem;
+            line-height: 3.6rem;
+            margin: 2% 0;
+            font-size: 1.8rem;
+            font-weight: lighter;
+            &.today{
+              color: @c_fff;
+              background: @orange;
+              .border-radius(1rem);
+              position: relative;
+              font-weight: normal;
+              &:after{
+                content: "";
+                width: 0.6rem;
+                height: 0.6rem;
+                .border-radius(100%);
+                background: @c_fff;
+                position: absolute;
+                top: 0.3rem;
+                left: 50%;
+                margin-left: -0.35rem;
+              }
+            }
+            &.tomo{
+              color: #444;
+              font-weight: normal;
+              position: relative;
+            }
+            &.lowPrice{
+              color: #ED5B54;
+            }
+            span{
+              text-align: center;
+              font-size: 1.2rem;
+              font-weight: lighter;
+              position: absolute;
+              bottom: 4%;
+              left: 0;
+              width: 100%;
+              line-height: 100%;
+            }
+            &.xiu{
+              position: relative;
+              i{
+                position: absolute;
+                color: @blue;
+                right: 0;
+                top: -0.8rem;
+                font-size: 2rem;
+                font-weight: lighter;
+              }
+            }
+            &.wFont{
+              font-size: 1.4rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}

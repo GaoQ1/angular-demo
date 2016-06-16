@@ -1,6 +1,8 @@
-import {module} from 'angular';
-import services from './services';
+import {module} from 'angular'
+import services from './services'
+import filter from './filters'
 
-let util=module('util',[]);
+let util = module('util', []);
 services.inject(util);
-export default util
+filter.inject(util);
+export default util;

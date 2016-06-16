@@ -15,6 +15,9 @@ header{
     line-height: 2rem;
     text-overflow: ellipsis;
     overflow: hidden;
+    &.disabled{
+      background-color: @c_999;
+    }
   }
   .preDate{
     background: url("@{pic_url}whitejt.png") no-repeat 0.5rem center;
@@ -37,7 +40,7 @@ header{
       display: inline-block;
       margin-left: 0.3rem;
     }
-    &:after{
+    /*&:after{
       content: "";
       width: 0;
       height: 0;
@@ -47,7 +50,7 @@ header{
       position: absolute;
       right: 0;
       top: 1rem;
-    }
+    }*/
   }
 }
 

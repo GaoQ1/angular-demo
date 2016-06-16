@@ -67,25 +67,93 @@ ol {
 a {
   text-decoration: none;
 }
-.view-animation.ng-enter,
-.view-animation.ng-leave {
-  transition: 0.5s linear all;
-  position: fixed;
+body,
+.view-animation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
   height: 100%;
+  overflow: auto;
+  background: #F0EFF5;
+}
+.view-animation.ng-leave {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: fixed;
+  -webkit-animation: moveToLeftOut 0.3s both ease-in;
+  -moz-animation: moveToLeftOut 0.3s both ease-in;
+  animation: moveToLeftOut 0.3s both ease-in;
+}
+.view-animation.ng-leave:after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
   left: 0;
   top: 0;
-  width: 100%;
-  background: #FFF;
+  z-index: 999;
+  background: rgba(0, 0, 0, 0.5);
 }
 .view-animation.ng-enter {
-  transform: translateX(100%);
+  width: 100%;
+  height: 100%;
+  z-index: 999999;
+  position: fixed;
+  -webkit-animation: moveToRightIn 0.3s both ease-in-out;
+  -moz-animation: moveToRightIn 0.3s both ease-in-out;
+  animation: moveToRightIn 0.3s both ease-in-out;
 }
-.view-animation.ng-leave,
-.view-animation.ng-enter.ng-enter-active {
-  transform: translateX(0%);
+/*.pagefade.ng-leave {
+	-webkit-animation: pagefade .4s both ease-in;
+	-moz-animation: pagefade .4s both ease-in;
+	animation: pagefade .4s both ease-in
 }
-.view-animation.ng-leave.ng-leave-active {
-  transform: translateX(-100%);
+
+.pagefade.ng-leave:after {
+	content: "";
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 999;
+	background: rgba(0, 0, 0, .5)
+}*/
+@-webkit-keyframes moveToLeftOut {
+  to {
+    opacity: .6;
+    -webkit-transform: translateX(-20%);
+    transform: translateX(-20%);
+  }
+}
+@keyframes moveToLeftOut {
+  to {
+    opacity: .6;
+    -webkit-transform: translateX(-20%);
+    transform: translateX(-20%);
+  }
+}
+@-webkit-keyframes moveToRightIn {
+  from {
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+  }
+  to {
+    -webkit-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+}
+@keyframes moveToRightIn {
+  from {
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+  }
+  to {
+    -webkit-transform: translateX(0%);
+    transform: translateX(0%);
+  }
 }
 .orange {
   color: #FF7F00;
@@ -453,6 +521,10 @@ header {
   text-overflow: ellipsis;
   overflow: hidden;
 }
+.headerDate .preDate.disabled,
+.headerDate .nextDate.disabled {
+  background-color: #999;
+}
 .headerDate .preDate {
   background: url(./img/whitejt.png?42b907dac0331e453b2471968e4df477) no-repeat 0.5rem center;
   background-size: 1.2rem auto;
@@ -469,22 +541,22 @@ header {
   padding-right: 1.6rem;
   white-space: nowrap;
   margin: 0 1%;
+  /*&:after{
+      content: "";
+      width: 0;
+      height: 0;
+      border-width: 0.6rem;
+      border-style: solid;
+      border-color: @c_fff transparent transparent transparent;
+      position: absolute;
+      right: 0;
+      top: 1rem;
+    }*/
 }
 .headerDate .Date span {
   font-size: 1.3rem;
   display: inline-block;
   margin-left: 0.3rem;
-}
-.headerDate .Date:after {
-  content: "";
-  width: 0;
-  height: 0;
-  border-width: 0.6rem;
-  border-style: solid;
-  border-color: #fff transparent transparent transparent;
-  position: absolute;
-  right: 0;
-  top: 1rem;
 }
 .flightOptions {
   padding: 1rem;
@@ -661,7 +733,12 @@ header {
   color: #59a5f0;
   border-radius: 5px;
   -webkit-border-radius: 5px;
-  padding: 1% 2.2rem 1% 3%;
+  padding: 1% 3%;
+  /*&:after{
+       border-color: @blue transparent transparent transparent;
+       right: 4%;
+       top: 1.2rem;
+     }*/
 }
 .flightReturn .Date b {
   font-weight: bold;
@@ -672,11 +749,6 @@ header {
 .flightReturn .Date b i {
   font-weight: normal;
   font-size: 1.2rem;
-}
-.flightReturn .Date:after {
-  border-color: #59a5f0 transparent transparent transparent;
-  right: 4%;
-  top: 1.2rem;
 }
 .returnMess {
   color: #4A586A;
@@ -1762,6 +1834,26 @@ header {
   line-height: 2.6rem;
   color: #fff;
 }
+.tabIndex .wish {
+  background: #efeff5;
+  color: #d5d5d5;
+  display: none;
+  padding-top: 9rem;
+}
+.tabIndex .wish .fly {
+  font-size: 16rem;
+  text-align: center;
+  display: block;
+}
+.tabIndex .wish p {
+  text-align: center;
+  font-size: 2.8rem;
+  margin-top: 10%;
+  letter-spacing: 2px;
+}
+.tabIndex .wish.active {
+  display: block;
+}
 .screenDate {
   width: 100%;
   background-color: #fff;
@@ -2059,6 +2151,295 @@ header {
   .addPeople .peopleBox .numAdd .ages p {
     line-height: 2rem;
   }
+}
+.searchTop {
+  background: #59a5f0;
+  width: 100%;
+  height: 4.5rem;
+  padding: 2% 3rem;
+}
+.searchTop .searchCity {
+  width: 100%;
+  height: 2.8rem;
+  position: relative;
+  display: box;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  background: #fff;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+.searchTop .searchCity i {
+  font-size: 3.2rem;
+  height: 2.8rem;
+  line-height: 2.8rem;
+  color: #929FB1;
+  display: block;
+  width: 22%;
+  text-align: right;
+}
+.searchTop .searchCity input {
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  border: none;
+  height: 2.8rem;
+  line-height: 2.8rem;
+  background: none;
+  color: #929FB1;
+  font-size: 1.5rem;
+  font-family: "Microsoft YaHei", "Segoe UI", "Lucida Grande", Helvetica, Arial, "Droid Sans", "wenquanyi micro hei", "Hiragino Sans GB", "Hiragino Sans GB W3", "FontAwesome", sans-serif;
+  padding-left: 1%;
+}
+.chooseCity {
+  position: relative;
+}
+.chooseCity .cityTab {
+  background: #fff;
+  font-size: 1.5rem;
+}
+.chooseCity .cityTab ul {
+  display: box;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+.chooseCity .cityTab ul li {
+  text-align: center;
+  height: 3.5rem;
+  line-height: 3.5rem;
+  color: #4A586A;
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+.chooseCity .cityTab ul li.acitve {
+  color: #59a5f0;
+  border-bottom: 2px solid #59A5F0;
+}
+.chooseCity .cityMain {
+  padding-left: 1rem;
+}
+.chooseCity .cityMain .cityHead {
+  display: box;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  align-items: center;
+  box-pack: center;
+  -moz-box-pack: center;
+  -o-box-pack: center;
+  -webkit-box-pack: center;
+  padding: 3% 0;
+}
+.chooseCity .cityMain .cityHead span {
+  display: block;
+  color: #929FB1;
+}
+.chooseCity .cityMain .cityHead .line {
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  height: 1px;
+  margin-left: 2%;
+  background: #CBD1DA;
+}
+.chooseCity .cityMain .cityBox {
+  display: box;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  justify-content: space-between;
+  padding-right: 3rem;
+}
+.chooseCity .cityMain .cityBox .cityBg {
+  width: 8.5rem;
+  height: 2.8rem;
+  text-align: center;
+  line-height: 2.8rem;
+  background: #fff;
+  border: 1px solid #D0D0D0;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  font-size: 1.5rem;
+}
+.chooseCity .cityMain .cityBox .cityBg.curr {
+  color: #59A5F0;
+}
+.chooseCity .cityMain .cityBox .cityBg:nth-of-type(2) {
+  margin: 0 2%;
+}
+.chooseCity .cityMain .hotCity .cityBox {
+  margin-bottom: 1rem;
+}
+.chooseCity .zmBox h5 {
+  color: #929FB1;
+  font-weight: normal;
+  font-size: 1.4rem;
+  padding: 2% 0 2% 1rem;
+}
+.chooseCity .zmBox ul {
+  border-top: 1px solid #C7C7C7;
+  border-bottom: 1px solid #C7C7C7;
+  padding-left: 1rem;
+  background: #fff;
+}
+.chooseCity .zmBox ul li {
+  border-bottom: 1px solid #C7C7C7;
+  height: 4.4rem;
+  line-height: 4.4rem;
+  color: #63717F;
+  font-size: 1.5rem;
+}
+.chooseCity .zmBox ul li:last-child {
+  border-bottom: none;
+}
+.chooseCity .floatCity {
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: rgba(255, 255, 255, 0.5);
+  width: 2.5rem;
+  height: 100%;
+  text-align: center;
+  color: #59A5F0;
+  font-family: Arial, "Microsoft YaHei", "Segoe UI", "Lucida Grande", Helvetica, "Droid Sans", "wenquanyi micro hei", "Hiragino Sans GB", "Hiragino Sans GB W3", "FontAwesome", sans-serif;
+  line-height: 120%;
+  padding: 7rem 0 0;
+}
+.calendar {
+  background: #fff;
+}
+.calendar .calendarTop {
+  border-bottom: 1px solid #C8C8C8;
+  margin-bottom: 3%;
+  background: #F0EFF5;
+}
+.calendar .calendarTop ul {
+  display: box;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+.calendar .calendarTop ul li {
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  color: #63717F;
+  text-align: center;
+  height: 2.5rem;
+  line-height: 2.5rem;
+}
+.calendar .calendarTop ul li:first-child,
+.calendar .calendarTop ul li:last-child {
+  color: #FF7F00;
+}
+.calendar .calendarMain {
+  border-top: 1px solid #C8C8C8;
+}
+.calendar .calendarMain h5 {
+  text-align: center;
+  color: #666;
+  font-size: 1.6rem;
+  font-weight: bold;
+  height: 4rem;
+  line-height: 4rem;
+  background: #F0EFF5;
+}
+.calendar .calendarMain .mainCal {
+  background: #fff;
+  border-top: 1px solid #C8C8C8;
+  padding: 2% 1rem;
+}
+.calendar .calendarMain .mainCal .calBox ul {
+  display: box;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  justify-content: space-between;
+}
+.calendar .calendarMain .mainCal .calBox ul li {
+  text-align: center;
+  color: #AAAAAA;
+  width: 4rem;
+  height: 4rem;
+  line-height: 3.6rem;
+  margin: 2% 0;
+  font-size: 1.8rem;
+  font-weight: lighter;
+}
+.calendar .calendarMain .mainCal .calBox ul li.today {
+  color: #fff;
+  background: #FF7F00;
+  border-radius: 1rem;
+  -webkit-border-radius: 1rem;
+  position: relative;
+  font-weight: normal;
+}
+.calendar .calendarMain .mainCal .calBox ul li.today:after {
+  content: "";
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 100%;
+  -webkit-border-radius: 100%;
+  background: #fff;
+  position: absolute;
+  top: 0.3rem;
+  left: 50%;
+  margin-left: -0.35rem;
+}
+.calendar .calendarMain .mainCal .calBox ul li.tomo {
+  color: #444;
+  font-weight: normal;
+  position: relative;
+}
+.calendar .calendarMain .mainCal .calBox ul li.lowPrice {
+  color: #ED5B54;
+}
+.calendar .calendarMain .mainCal .calBox ul li span {
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: lighter;
+  position: absolute;
+  bottom: 4%;
+  left: 0;
+  width: 100%;
+  line-height: 100%;
+}
+.calendar .calendarMain .mainCal .calBox ul li.xiu {
+  position: relative;
+}
+.calendar .calendarMain .mainCal .calBox ul li.xiu i {
+  position: absolute;
+  color: #59a5f0;
+  right: 0;
+  top: -0.8rem;
+  font-size: 2rem;
+  font-weight: lighter;
+}
+.calendar .calendarMain .mainCal .calBox ul li.wFont {
+  font-size: 1.4rem;
 }
 
 /*# sourceMappingURL=styles.css.map*/

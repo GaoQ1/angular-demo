@@ -6,9 +6,10 @@
     "start": "concurrently \"npm run webpack:w\" \"npm run server\"",
     "product": "webpack --production",
     "server": "node ./bin/www",
+    "server:p": "node ./bin/www --proxy",
     "webpack:w": "webpack -w",
     "webpack": "webpack",
-    "proxy":"node ./httpProxy/http-proxy"
+    "proxy": "node ./httpProxy/http-proxy"
   },
   "dependencies": {
     "angular": "^1.5.6",

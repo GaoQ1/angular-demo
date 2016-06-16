@@ -16,6 +16,15 @@ export class directiveInject {
     }
 }
 
+export class filterInject {
+    constructor(filter = {}) {
+        this.filter = filter;
+    }
+    inject(module) {
+        injectBase(this.filter, module, 'filter')
+    }
+}
+
 
 export class providerInject {
     constructor(provider = {}) {

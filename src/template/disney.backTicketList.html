@@ -1,194 +1,63 @@
+<!--header-->
+<header>
+    <div class="returnMess">
+        <div class="messDetail">
+            <div class="messLeft"><span>去</span></div>
+            <div class="messRight">2015-10-10&nbsp;&nbsp;07:10-09:10&nbsp;&nbsp;MU5101&nbsp;&nbsp;￥388</div>
+        </div>
+    </div>
+    <div class="headerDate flightReturn">
+        <div class="preDate" ng-click="prevDay()">前一天</div>
+        <div class="Date">{{airDate.AirBackDate.slice(5)}}<span>{{airDate.AirBackDate | util_f_week}}</span></div>
+        <div class="nextDate" ng-click="nextDay()">后一天</div>
+    </div>
+</header>
 
-    <header>
-        <div class="returnMess">
-            <div class="messDetail">
-                <div class="messLeft"><span>去</span></div>
-                <div class="messRight">2015-10-10&nbsp;&nbsp;07:10-09:10&nbsp;&nbsp;MU5101&nbsp;&nbsp;￥388</div>
+<!--body-->
+<div class="flightOptions returnOptions">
+    <div class="options" ng-repeat="item in backFlightList track by $index">
+        <div class="options-top">
+            <div class="op-Left">
+                <div class="options-left">
+                    <span>{{item.FightStartDate |util_f_date|date:'HH:mm'}}</span>
+                    <p>{{item.StartAirportName}}{{item.StartTerminalName}}</p>
+                </div>
+                <div class="options-cen">
+                    <span>{{(item.IsStopOver)? '中转': '直达'}}</span>
+                    <p>{{item.IsStopOver ? item.StopAreaName : ''}}</p>
+                </div>
+                <div class="options-right">
+                    <span>{{item.FightEndDate | util_f_date | date:'HH:mm'}}</span>
+                    <p>{{item.EndAirportName}}{{item.EndTerminalName}}</p>
+                    <i>{{overDay(item.FightStartDate,item.FightEndDate)}}</i>
+                </div>
+            </div>
+            <div class="ticket-price">
+                <p class="sec"><span>￥</span>388</p>
+                <p class="fir">经济舱位</p>
             </div>
         </div>
-        <div class="headerDate flightReturn">
-            <div class="preDate">前一天</div>
-            <div class="Date">01-29<span>周二</span><b><i>￥</i>1388</b></div>
-            <div class="nextDate">后一天</div>
-        </div>
-    </header>
-    <div class="flightOptions returnOptions">
-        <div class="options">
-            <div class="options-top">
-                <div class="op-Left">
-                    <div class="options-left">
-                        <span>10:30</span>
-                        <p>上海虹桥T1</p>
-                    </div>
-                    <div class="options-cen">
-                        <span>经停</span>
-                        <p>北京</p>
-                    </div>
-                    <div class="options-right">
-                        <span>09:10</span>
-                        <p>北京首都T3</p>
-                        <i>+1天</i>
-                    </div>
-                </div>
-                <div class="ticket-price">
-                    <p class="fir">差价</p>
-                    <p class="sec"><i>-</i><span>￥</span>388</p>
-                </div>
-            </div>
-            <div class="options-bot">
-                <p>东航MU5101  |  737（中）</p>
-                <div class="picketNum">余票充足</div>
-            </div>
-        </div>
-        <div class="options">
-            <div class="options-top">
-                <div class="op-Left">
-                    <div class="options-left">
-                        <span>10:30</span>
-                        <p>上海虹桥T1</p>
-                    </div>
-                    <div class="options-cen">
-                        <span>经停</span>
-                        <p>北京</p>
-                    </div>
-                    <div class="options-right">
-                        <span>09:10</span>
-                        <p>北京首都T3</p>
-                        <i>+1天</i>
-                    </div>
-                </div>
-                <div class="ticket-price">
-                    <p class="fir">差价</p>
-                    <p class="sec"><i>-</i><span>￥</span>388</p>
-                </div>
-            </div>
-            <div class="options-bot">
-                <p>东航MU5101  |  737（中）</p>
-                <div class="picketNum jinz">还剩6张</div>
-            </div>
-        </div>
-        <div class="options">
-            <div class="options-top">
-                <div class="op-Left">
-                    <div class="options-left">
-                        <span>10:30</span>
-                        <p>上海虹桥T1</p>
-                    </div>
-                    <div class="options-cen">
-                        <span>经停</span>
-                        <p>北京</p>
-                    </div>
-                    <div class="options-right">
-                        <span>09:10</span>
-                        <p>北京首都T3</p>
-                        <i>+1天</i>
-                    </div>
-                </div>
-                <div class="ticket-price">
-                    <p class="fir">差价</p>
-                    <p class="sec"><i>-</i><span>￥</span>388</p>
-                </div>
-            </div>
-            <div class="options-bot">
-                <p>东航MU5101  |  737（中）</p>
-                <div class="picketNum">余票充足</div>
-            </div>
-        </div>
-        <div class="options">
-            <div class="options-top">
-                <div class="op-Left">
-                    <div class="options-left">
-                        <span>10:30</span>
-                        <p>上海虹桥T1</p>
-                    </div>
-                    <div class="options-cen">
-                        <span>经停</span>
-                        <p>北京</p>
-                    </div>
-                    <div class="options-right">
-                        <span>09:10</span>
-                        <p>北京首都T3</p>
-                        <i>+1天</i>
-                    </div>
-                </div>
-                <div class="ticket-price">
-                    <p class="fir">差价</p>
-                    <p class="sec"><i>-</i><span>￥</span>388</p>
-                </div>
-            </div>
-            <div class="options-bot">
-                <p>东航MU5101  |  737（中）</p>
-                <div class="picketNum jinz">还剩6张</div>
-            </div>
-        </div>
-        <div class="options">
-            <div class="options-top">
-                <div class="op-Left">
-                    <div class="options-left">
-                        <span>10:30</span>
-                        <p>上海虹桥T1</p>
-                    </div>
-                    <div class="options-cen">
-                        <span>经停</span>
-                        <p>北京</p>
-                    </div>
-                    <div class="options-right">
-                        <span>09:10</span>
-                        <p>北京首都T3</p>
-                        <i>+1天</i>
-                    </div>
-                </div>
-                <div class="ticket-price">
-                    <p class="fir">差价</p>
-                    <p class="sec"><i>-</i><span>￥</span>388</p>
-                </div>
-            </div>
-            <div class="options-bot">
-                <p>东航MU5101  |  737（中）</p>
-                <div class="picketNum">余票充足</div>
-            </div>
-        </div>
-        <div class="options">
-            <div class="options-top">
-                <div class="op-Left">
-                    <div class="options-left">
-                        <span>10:30</span>
-                        <p>上海虹桥T1</p>
-                    </div>
-                    <div class="options-cen">
-                        <span>经停</span>
-                        <p>北京</p>
-                    </div>
-                    <div class="options-right">
-                        <span>09:10</span>
-                        <p>北京首都T3</p>
-                        <i>+1天</i>
-                    </div>
-                </div>
-                <div class="ticket-price">
-                    <p class="fir">差价</p>
-                    <p class="sec"><i>-</i><span>￥</span>388</p>
-                </div>
-            </div>
-            <div class="options-bot">
-                <p>东航MU5101  |  737（中）</p>
-                <div class="picketNum jinz">还剩6张</div>
-            </div>
+        <div class="options-bot">
+            <p>{{item.AirlineName}}{{item.FightCode}} | {{item.AirType}}</p>
+            <div class="picketNum">余票充足</div>
         </div>
     </div>
-    <div class="searchFoot">
-        <div class="searchIc">
-            <p class="icon-icon1"></p>
-            时间排序
-        </div>
-        <div class="searchIc">
-            <p class="icon-icon36"></p>
-            价格排序
-        </div>
-        <div class="searchIc lastIcon">
-            <p class="icon-icon36"></p>
-            筛选
-            <a href="javascript:;" class="btnJt toUp"></a>
-            <a href="javascript:;" class="btnJt toLow"></a>
-        </div>
+</div>
+
+<!--排序-->
+<div class="searchFoot">
+    <div class="searchIc">
+        <p class="icon-icon1"></p>
+        时间排序
     </div>
+    <div class="searchIc">
+        <p class="icon-icon36"></p>
+        价格排序
+    </div>
+    <div class="searchIc lastIcon">
+        <p class="icon-icon36"></p>
+        筛选
+        <a href="javascript:;" class="btnJt toUp"></a>
+        <a href="javascript:;" class="btnJt toLow"></a>
+    </div>
+</div>

@@ -46,22 +46,122 @@ a{
 	text-decoration: none;
 }
 
-.view-animation.ng-enter, .view-animation.ng-leave {
-  transition:0.5s linear all;
-  position:fixed;
-  height: 100%;
-  left:0;
-  top:0;
-  width:100%;
-  background: #FFF;
+body,.view-animation{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background: #F0EFF5;
 }
+
+// .view-animation.ng-enter, .view-animation.ng-leave {
+//   transition:0.3s linear all;
+//   position:fixed;
+//   height: 100%;
+//   left:0;
+//   top:0;
+//   width:100%;
+//   background: #FFF;
+// }
+// .view-animation.ng-enter {
+//   -webkit-transform:translateX(0%);
+//   transform:translateX(100%);
+// }
+// .view-animation.ng-leave,
+// .view-animation.ng-enter.ng-enter-active {
+//   -webkit-transform:translateX(0%);
+//   transform:translateX(0%);
+// }
+// .view-animation.ng-leave.ng-leave-active {
+//   -webkit-transform:translateX(-100%);
+//   transform:translateX(-100%);
+// }
+
+.view-animation.ng-leave {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	position: fixed;
+	-webkit-animation: moveToLeftOut .3s both ease-in;
+	-moz-animation: moveToLeftOut .3s both ease-in;
+	animation: moveToLeftOut .3s both ease-in
+}
+
+.view-animation.ng-leave:after {
+	content: "";
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 999;
+	background: rgba(0, 0, 0, .5)
+}
+
 .view-animation.ng-enter {
-  transform:translateX(100%);
+	width: 100%;
+	height: 100%;
+	z-index: 999999;
+	position: fixed;
+	-webkit-animation: moveToRightIn .3s both ease-in-out;
+	-moz-animation: moveToRightIn .3s both ease-in-out;
+	animation: moveToRightIn .3s both ease-in-out
 }
-.view-animation.ng-leave,
-.view-animation.ng-enter.ng-enter-active {
-  transform:translateX(0%);
+
+/*.pagefade.ng-leave {
+	-webkit-animation: pagefade .4s both ease-in;
+	-moz-animation: pagefade .4s both ease-in;
+	animation: pagefade .4s both ease-in
 }
-.view-animation.ng-leave.ng-leave-active {
-  transform:translateX(-100%);
+
+.pagefade.ng-leave:after {
+	content: "";
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 999;
+	background: rgba(0, 0, 0, .5)
+}*/
+
+@-webkit-keyframes moveToLeftOut {
+	from{}
+	to {
+		opacity: .6;
+		-webkit-transform: translateX(-20%);
+		transform: translateX(-20%)
+	}
+}
+
+@keyframes moveToLeftOut {
+	from{}
+	to {
+		opacity: .6;
+		-webkit-transform: translateX(-20%);
+		transform: translateX(-20%)
+	}
+}
+
+@-webkit-keyframes moveToRightIn {
+	from {
+		-webkit-transform: translateX(100%);
+		transform: translateX(100%);
+	}
+	to {
+		-webkit-transform: translateX(0%);
+		transform: translateX(0%);
+	}
+}
+@keyframes moveToRightIn {
+	from {
+		-webkit-transform: translateX(100%);
+		transform: translateX(100%);
+	}
+	to {
+		-webkit-transform: translateX(0%);
+		transform: translateX(0%);
+	}
 }
