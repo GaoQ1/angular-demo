@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="zfpx">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div ng-controller="ParentCtrl">
+    <zf-table datasource="items"></zf-table>
+</div>
+<div ng-controller="ChildCtrl">
+   <zf-table datasource="items"></zf-table>
+</div>
+</body>
+<script src="angular.js"></script>
+<script>
+    angular.module('zfpx',[]);
+    angular.module('zfpx').controller('ParentCtrl',function($scope){
+        $scope.items = [{name:'zhangsan',age:6},{name:'lisi',age:5}];
+    });
+    angular.module('zfpx').controller('ChildCtrl',function($scope){
+        $scope.items = [{name:'wangwu',age:6},{name:'zhaohu',age:5}];
+    });
+
+    angular.module('zfpx').directive('zfTable',function(){
+        return{
+            templateUrl:'items.html'
+        }
+    });
+
+
+</script>
+</html>

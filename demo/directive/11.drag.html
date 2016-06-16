@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="zfApp">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    div{
+      width: 100px;
+      height: 100px;
+      background-color: #f00;
+    }
+  </style>
+</head>
+<body>
+<div my-drag>
+  hello
+</div>
+</body>
+<script src="angular.js"></script>
+<script>
+  var app = angular.module('zfApp',[]);
+  app.directive('myDrag',function(){
+    return{
+      link:function(scope,element,attr){
+
+      }
+    }
+  });
+</script>
+</html>

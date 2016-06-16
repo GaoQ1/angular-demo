@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="calcuModel">
+<head>
+    <meta charset="UTF-8">
+    <title>filter</title>
+</head>
+<body>
+<div ng-controller="MyCtrl">
+    {{12|toname}}
+</div>
+</body>
+<script src="./angular.js"></script>
+<script>
+
+    angular.module('calcuModel',[]).controller('MyCtrl',function($scope,$http,numberFilter,currencyFilter){
+    });
+
+    angular.module('calcuModel').filter('toname',function($http){
+        return function(input){
+           return $http.get('/user/'+input).success(function(){
+              console.log('success');
+           })
+        }
+    });
+</script>
+</html>

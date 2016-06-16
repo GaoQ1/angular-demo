@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="module">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div ng-controller="ClockCtrl">
+  数据格式: <input type="text" ng-model="format">
+  <hr>
+  当前时间 <span current-time="format"></span>
+</div>
+<script src="angular.js"></script>
+<script>
+  var app = angular.module('module',[]);
+  app.controller('ClockCtrl',function($scope){
+    $scope.format = 'yyyy-MM-dd hh:mm:ss';
+  });
+  app.directive('currentTime',function($interval,$filter){
+    return {
+      link:function(scope,element,attrs){
+        var format;
+        var timeoutid;
+        function updateTime(){
+          element.text($filter('date')(new Date(),scope[attrs.currentTime]));
+        }
+        scope.$watch('format',updateTime);
+        timeoutid = $interval(updateTime,1000);
+        element.on('$destory',function(){
+          $interval.cancel(timeoutid);
+        })
+      }
+    }
+  })
+</script>
+</body>
+</html>

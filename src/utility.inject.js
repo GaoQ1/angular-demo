@@ -96,8 +96,6 @@ export class routerInject {
     }
 }
 
-
-
 function injectBase(injectObjs, module, fnType) {
     for (let key in injectObjs) {
         module[fnType](key, injectObjs[key]);

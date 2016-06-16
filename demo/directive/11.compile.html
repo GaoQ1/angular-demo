@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="zfApp">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div times="5">
+  <p>{{words}}</p>
+</div>
+</body>
+<script src="angular.js"></script>
+<script>
+  var app = angular.module('zfApp',[]);
+  app.directive('times',function(){
+    return{
+      compile:function(element,attrs,transclude){
+        var tpl = element.children();
+        for(var i=0;i<attrs.times-1;i++){
+          element.append(tpl.clone());
+        }
+        //compile 函数一定会返回一个链接函数
+        return function(scope,element,attrs){
+          scope.words = 'hello';
+          console.log('compile的链接函数');
+        }
+      }
+    }
+  });
+</script>
+</html>

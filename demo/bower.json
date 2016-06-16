@@ -1,0 +1,21 @@
+{
+  "name": "angular",
+  "main": "angular.js",
+  "authors": [
+    "GaoQ <18912936976@163.com>"
+  ],
+  "description": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.6"
+  }
+}
